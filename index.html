@@ -83,6 +83,7 @@
                 </a>
                 <a href="#services" class="hover:text-txtPrimary transition">Services</a>
                 <a href="#pricing" class="hover:text-txtPrimary transition">Rate Estimator</a>
+                <a href="#reviews" class="hover:text-txtPrimary transition">Reviews</a>
                 <a href="#standards" class="hover:text-txtPrimary transition">Quality Standards</a>
                 <a href="#contact" class="hover:text-txtPrimary transition">Contact</a>
             </div>
@@ -387,6 +388,76 @@
             </div>
         </div>
     </section>
+
+    <!-- CUSTOMER REVIEWS & FEEDBACK SECTION -->
+    <section id="reviews" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-semibold text-amber-800 mb-2">
+                    ★ ग्राहक अनुभव (Verified Reviews)
+                </div>
+                <h2 class="text-xl font-semibold tracking-tight text-txtPrimary">Customer Reviews</h2>
+                <p class="text-xs text-txtSecondary mt-0.5">Muske Home Appliances की सर्विस पर असली ग्राहकों की राय</p>
+            </div>
+            <button onclick="toggleReviewFormModal()" class="px-4 py-2 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-1.5 w-fit shadow-sm">
+                <i data-lucide="message-square-plus" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>अपना रिव्यू लिखें (Write Review)</span>
+            </button>
+        </div>
+
+        <!-- Dynamic Reviews Grid Container -->
+        <div id="reviewsListGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-6 rounded-2xl bg-white border border-borderMuted text-center text-xs text-txtMuted col-span-3 py-10">
+                रिव्यूज लोड हो रहे हैं...
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBMIT REVIEW MODAL -->
+    <div id="reviewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white border border-borderMuted w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="toggleReviewFormModal()" class="absolute top-5 right-5 text-txtMuted hover:text-txtPrimary">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <h3 class="font-bold text-base text-txtPrimary">अपना रिव्यू शेयर करें</h3>
+            <p class="text-xs text-txtSecondary mt-0.5">आपका फीडबैक हमारे काम को और बेहतर बनाने में मदद करता है।</p>
+
+            <form onsubmit="handleReviewSubmit(event)" class="mt-4 space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">आपका पूरा नाम (Full Name) *</label>
+                    <input type="text" id="revAuthor" required placeholder="उदा. राहुल शर्मा" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs focus:outline-none focus:border-txtPrimary bg-white">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">कौन-सी सर्विस ली थी? *</label>
+                    <select id="revService" required class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs focus:outline-none focus:border-txtPrimary bg-white">
+                        <option value="RO Water Purifier">RO Water Purifier Service</option>
+                        <option value="Water Geyser Repair">Water Geyser Repair / Fitting</option>
+                        <option value="CCTV Camera Setup">CCTV Camera Setup</option>
+                        <option value="Other Service">अन्य काम (General Service)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">रेटिंग (Rating) *</label>
+                    <select id="revRating" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs font-semibold bg-white focus:outline-none focus:border-txtPrimary">
+                        <option value="5">★★★★★ (5/5) बहुत बढ़िया कार्य</option>
+                        <option value="4">★★★★☆ (4/5) अच्छा</option>
+                        <option value="3">★★★☆☆ (3/5) ठीक-ठाक</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">आपका अनुभव (Feedback) *</label>
+                    <textarea id="revComment" rows="3" required placeholder="टेक्नीशियन का काम कैसा लगा? सही समय पर आए या नहीं?..." class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs focus:outline-none focus:border-txtPrimary bg-white resize-none"></textarea>
+                </div>
+
+                <button type="submit" id="btnSubmitReview" class="w-full py-2.5 rounded-xl bg-accent text-white text-xs font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2 shadow-sm">
+                    <span>रिव्यू पब्लिश करें (Submit Review)</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- TRUST STANDARDS -->
     <section id="standards" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
@@ -1299,6 +1370,15 @@
             }, 3000);
         }
 
+        // Modal for Customer Review Form
+        function toggleReviewFormModal() {
+            const modal = document.getElementById('reviewModal');
+            if (!modal) return;
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+        }
+        window.toggleReviewFormModal = toggleReviewFormModal;
+
         // Phone Validation (Strict 10 digits)
         function validatePhoneInput(input) {
             input.value = input.value.replace(/\D/g, '');
@@ -1485,11 +1565,11 @@
         });
     </script>
 
-    <!-- FIREBASE INITIALIZATION & CLOUD FIRESTORE REALTIME SYNC -->
+    <!-- FIREBASE INITIALIZATION, CLOUD FIRESTORE REALTIME SYNC & REVIEWS MANAGEMENT -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, onSnapshot, setDoc, collection, addDoc, deleteDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyAyT2qqiskGcYVKTkSjPcnS_uBs9BNxfcU",
@@ -1506,13 +1586,15 @@
         const db = getFirestore(app);
         const provider = new GoogleAuthProvider();
 
+        let isCurrentAdminUser = false;
+
         /* AUTHORIZED ADMIN WHITELIST */
         const AUTHORIZED_ADMINS = [
             "jayantkore2009@gmail.com",
             "jayantkore2009@gamail.com"
         ];
 
-        /* Realtime Global Synchronization for All Users Across the Globe */
+        /* Realtime Global Synchronization for Rates & Showcase Slides */
         try {
             const portalDocRef = doc(db, "portal_settings", "live_data");
             onSnapshot(portalDocRef, (snapshot) => {
@@ -1559,6 +1641,121 @@
             }
         };
 
+        /* 3. Realtime Customer Reviews Sync & Renderer */
+        try {
+            const reviewsCol = collection(db, "public_reviews");
+            const reviewsQuery = query(reviewsCol, orderBy("createdAt", "desc"));
+
+            onSnapshot(reviewsQuery, (snapshot) => {
+                const listGrid = document.getElementById("reviewsListGrid");
+                if (!listGrid) return;
+
+                if (snapshot.empty) {
+                    listGrid.innerHTML = `
+                        <div class="p-8 rounded-2xl bg-white border border-borderMuted text-center text-xs text-txtMuted col-span-3">
+                            अभी तक कोई रिव्यू नहीं है। पहले ग्राहक बनें और अपना रिव्यू जोड़ें!
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = "";
+                snapshot.forEach((docSnap) => {
+                    const data = docSnap.data();
+                    const docId = docSnap.id;
+                    const ratingNum = data.rating || 5;
+                    const stars = "★".repeat(ratingNum) + "☆".repeat(5 - ratingNum);
+
+                    html += `
+                        <div class="liquid-card rounded-2xl p-5 flex flex-col justify-between relative group">
+                            <div class="space-y-2.5">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-amber-500 text-xs tracking-wider font-bold">${stars}</span>
+                                    ${isCurrentAdminUser ? `
+                                        <button onclick="deleteReview('${docId}')" class="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 transition" title="Delete Review (Admin Only)">
+                                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    ` : ''}
+                                </div>
+                                <p class="text-xs text-txtSecondary leading-relaxed italic">
+                                    "${data.comment}"
+                                </p>
+                            </div>
+
+                            <div class="pt-4 mt-4 border-t border-borderMuted/80 flex items-center justify-between">
+                                <div>
+                                    <div class="font-bold text-xs text-txtPrimary">${data.author}</div>
+                                    <div class="text-[10px] text-txtMuted">${data.service}</div>
+                                </div>
+                                <span class="text-[9px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold">Verified User</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                listGrid.innerHTML = html;
+                if (window.lucide) lucide.createIcons();
+            }, (error) => {
+                console.warn("Reviews listener fallback:", error);
+            });
+        } catch (err) {
+            console.warn("Reviews setup notice:", err);
+        }
+
+        // Submit Review Handler
+        window.handleReviewSubmit = async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById("btnSubmitReview");
+            const author = document.getElementById("revAuthor")?.value?.trim() || "";
+            const service = document.getElementById("revService")?.value || "";
+            const rating = parseInt(document.getElementById("revRating")?.value || "5", 10);
+            const comment = document.getElementById("revComment")?.value?.trim() || "";
+
+            if (!author || !comment) {
+                alert("कृपया अपना नाम और अनुभव दोनों लिखें!");
+                return;
+            }
+
+            if (btn) {
+                btn.disabled = true;
+                btn.innerText = "पब्लिश हो रहा है...";
+            }
+
+            try {
+                await addDoc(collection(db, "public_reviews"), {
+                    author,
+                    service,
+                    rating,
+                    comment,
+                    createdAt: serverTimestamp()
+                });
+
+                alert("आपका रिव्यू सफलतापूर्वक पब्लिश हो गया है! धन्यवाद।");
+                if (window.toggleReviewFormModal) window.toggleReviewFormModal();
+                e.target.reset();
+            } catch (err) {
+                console.error("Error submitting review:", err);
+                alert("रिव्यू सेव करने में समस्या आई। Firebase Console में Firestore Rules चेक करें।");
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerText = "रिव्यू पब्लिश करें (Submit Review)";
+                }
+            }
+        };
+
+        // Admin Delete Review Handler
+        window.deleteReview = async function(docId) {
+            if (!confirm("क्या आप वाकई इस रिव्यू को हमेशा के लिए डिलीट करना चाहते हैं?")) return;
+            try {
+                await deleteDoc(doc(db, "public_reviews", docId));
+                showAdminToast("रिव्यू सफलतापूर्वक हटा दिया गया!");
+            } catch (err) {
+                console.error("Error deleting review:", err);
+                alert("डिलीट करने की अनुमति नहीं मिली!");
+            }
+        };
+
         onAuthStateChanged(auth, (user) => {
             const loggedInState = document.getElementById('adminLoggedInState');
             const loggedOutState = document.getElementById('adminLoggedOutState');
@@ -1570,6 +1767,7 @@
                 const isAuthorized = AUTHORIZED_ADMINS.some(admin => admin.toLowerCase() === userEmail);
 
                 if (isAuthorized) {
+                    isCurrentAdminUser = true;
                     if (loggedInState) loggedInState.classList.remove('hidden');
                     if (loggedOutState) loggedOutState.classList.add('hidden');
                     if (accessDeniedState) accessDeniedState.classList.add('hidden');
@@ -1585,6 +1783,7 @@
 
                     if (window.applyRatesToUI) window.applyRatesToUI();
                 } else {
+                    isCurrentAdminUser = false;
                     if (loggedInState) loggedInState.classList.add('hidden');
                     if (loggedOutState) loggedOutState.classList.add('hidden');
                     if (accessDeniedState) accessDeniedState.classList.remove('hidden');
@@ -1593,6 +1792,7 @@
                     if (statusText) statusText.innerText = 'Access Denied';
                 }
             } else {
+                isCurrentAdminUser = false;
                 if (loggedInState) loggedInState.classList.add('hidden');
                 if (loggedOutState) loggedOutState.classList.remove('hidden');
                 if (accessDeniedState) accessDeniedState.classList.add('hidden');
