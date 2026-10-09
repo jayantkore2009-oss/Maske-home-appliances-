@@ -789,27 +789,133 @@
     <script>
         const BUSINESS_PHONE = "919022071274";
 
+        // Global Dynamic Rates managed by Admin
+        let rates = {
+            ro: 299,
+            geyser: 249,
+            cctv: 399
+        };
+
         let estApp = 'RO Water Purifier';
-        let estAppCost = 299;
+        let estAppCost = rates.ro;
         let estType = 'Inspection & Minor Fix';
         let estTypeCost = 0;
 
-        // Windows Style Showcase Slider Mechanics
+        // Dynamic Showcase Slides Data Model
+        let showcaseSlides = [
+            {
+                id: 0,
+                tag: 'Fresh Stock • RO Water Purifier',
+                title: 'Copper + Alkaline Mineral Infuser Cartridge',
+                desc: 'साधारण RO के पानी में से मिनरल्स खत्म हो जाते हैं। हमारा नया कॉपर अल्कलाइन सिस्टम पानी का pH 8.5+ रखता है और नैचुरल कॉपर आयन घोलता है। पुराने किसी भी RO में फिट हो जाता है।',
+                points: ['100% Copper Minerals', 'Free TDS Testing', 'Ready Stock @ Doorstep'],
+                image: '',
+                inquire: 'Copper Alkaline Mineral Cartridge for RO'
+            },
+            {
+                id: 1,
+                tag: 'Heavy Duty • Water Geyser',
+                title: 'Titanium Glasslined Heating Element (खारे पानी का पक्का इलाज)',
+                desc: 'बोरिंग या खारे पानी से गीज़र की कॉइल 6 महीने में जल जाती है। हमारी नई टाइटेनियम कोटेड हैवी कॉइल पर नमक और सफेद पपड़ी (Scale) नहीं जमती। 3 गुना लंबी लाइफ और कम बिजली बिल।',
+                points: ['Hard Water Proof', '5-Star Power Saver', 'Instant Fitting Available'],
+                image: '',
+                inquire: 'Titanium Glasslined Heating Element for Geyser'
+            },
+            {
+                id: 2,
+                tag: 'Latest Camera • 4K CCTV',
+                title: 'ColorVu 24/7 Full Color Night Vision + Mobile Phone Live',
+                desc: 'रात के अंधेरे में भी काला-सफेद नहीं बल्कि बिल्कुल दिन जैसा रंगीन वीडियो। ह्यूमन डिटेक्शन अलार्म और आपके फोन पर बिना किसी रुकावट के लाइव फीड। दुकान, घर या ऑफिस के लिए बेस्ट।',
+                points: ['Crystal Clear 4K Feeds', 'Mobile App Setup', 'Concealed Wiring Setup'],
+                image: '',
+                inquire: 'ColorVu 4K Smart Night Vision CCTV System'
+            },
+            {
+                id: 3,
+                tag: 'Peace of Mind • Annual AMC',
+                title: 'Total Appliance Shield: साल भर Zero Labor Charges',
+                desc: 'बार-बार मैकेनिक बुलाने के खर्च से मुक्ति। 4 शेड्यूल्ड प्रीवेंटिव चेकअप, इमरजेंसी ब्रेकडाउन पर प्रायोरिटी विजिट और ओरिजिनल पार्ट्स पर डिस्काउंट। घर और सोसायटियों के लिए विशेष पैकेज।',
+                points: ['4 Routine Services', 'Free Filter Changes', 'Starts @ ₹1,999/yr'],
+                image: '',
+                inquire: 'Annual Appliance Shield AMC Plan'
+            }
+        ];
+
         let currentSlide = 0;
-        const totalSlides = 4;
         let slideTimer = null;
-        const SLIDE_DURATION = 4500; // 4.5 seconds graceful pause
+        const SLIDE_DURATION = 4500;
+
+        // Render Showcase dynamically from showcaseSlides array
+        function renderShowcaseSlides() {
+            const container = document.querySelector('#showcaseWrapper .relative.pt-6');
+            const dotsContainer = document.querySelector('#showcaseWrapper .dot-indicator')?.parentElement;
+            if (!container) return;
+
+            let slidesHtml = '';
+            showcaseSlides.forEach((s, idx) => {
+                const hiddenClass = idx === currentSlide ? '' : 'hidden opacity-0';
+                const imageEl = s.image ? `
+                    <div class="w-full sm:w-44 h-32 sm:h-28 rounded-2xl overflow-hidden border border-borderMuted shrink-0 shadow-sm">
+                        <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover">
+                    </div>
+                ` : '';
+
+                slidesHtml += `
+                    <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${hiddenClass}" id="slide-${idx}">
+                        <div class="space-y-2.5 max-w-xl">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 text-[10px] font-bold tracking-wide uppercase border border-blue-200">
+                                    ${s.tag}
+                                </span>
+                            </div>
+                            <h3 class="text-base sm:text-xl font-bold tracking-tight text-txtPrimary leading-snug">
+                                ${s.title}
+                            </h3>
+                            <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
+                                ${s.desc}
+                            </p>
+                            <div class="flex flex-wrap items-center gap-3 text-xs font-medium text-txtPrimary pt-0.5">
+                                ${s.points.map(p => `<span class="flex items-center gap-1 text-emerald-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> ${p}</span>`).join('')}
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
+                            ${imageEl}
+                            <button onclick="inquireArrival('${s.inquire || s.title}')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm whitespace-nowrap">
+                                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                <span>Inquire on WhatsApp</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = slidesHtml;
+
+            // Render Dots
+            if (dotsContainer) {
+                dotsContainer.innerHTML = showcaseSlides.map((_, idx) => `
+                    <button onclick="goToSlide(${idx})" class="dot-indicator h-1.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'w-6 bg-txtPrimary' : 'w-2 bg-borderMuted'}"></button>
+                `).join('');
+            }
+
+            const counterEl = document.getElementById('slideCounterText');
+            if (counterEl) {
+                counterEl.innerHTML = `${currentSlide + 1}</strong> / ${showcaseSlides.length}`;
+            }
+
+            if (window.lucide) lucide.createIcons();
+        }
 
         function showSlide(index) {
-            currentSlide = (index + totalSlides) % totalSlides;
+            if (showcaseSlides.length === 0) return;
+            currentSlide = (index + showcaseSlides.length) % showcaseSlides.length;
 
-            for (let i = 0; i < totalSlides; i++) {
+            showcaseSlides.forEach((_, i) => {
                 const pane = document.getElementById(`slide-${i}`);
-                if (!pane) continue;
-
+                if (!pane) return;
                 if (i === currentSlide) {
                     pane.classList.remove('hidden');
-                    // Trigger reflow for smooth CSS animation
                     void pane.offsetWidth;
                     pane.classList.remove('opacity-0');
                     pane.classList.add('opacity-100');
@@ -818,6 +924,334 @@
                     pane.classList.add('hidden');
                     pane.classList.remove('opacity-100');
                 }
+            });
+
+            const dots = document.querySelectorAll('.dot-indicator');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlide) {
+                    dot.classList.remove('w-2', 'bg-borderMuted');
+                    dot.classList.add('w-6', 'bg-txtPrimary');
+                } else {
+                    dot.classList.remove('w-6', 'bg-txtPrimary');
+                    dot.classList.add('w-2', 'bg-borderMuted');
+                }
+            });
+
+            const counterText = document.getElementById('slideCounterText');
+            if (counterText) counterText.innerText = (currentSlide + 1);
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+            resetSlideTimer();
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+            resetSlideTimer();
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetSlideTimer();
+        }
+
+        function startSlideTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, SLIDE_DURATION);
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideTimer);
+            startSlideTimer();
+        }
+
+        function inquireArrival(productTitle) {
+            const text = `Namaste Muske Home Appliances,\n\nMujhe aapki website par naye upgrade ke baare me jankari chahiye:\n*${productTitle}*\n\nIska price aur fitting time batayein.`;
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Apply Updated Rates Across UI
+        function applyRatesToUI() {
+            // Update Service Cards
+            const roCard = document.getElementById('roCardRate');
+            if (roCard) roCard.innerText = `From ₹${rates.ro}`;
+            const geyserCard = document.getElementById('geyserCardRate');
+            if (geyserCard) geyserCard.innerText = `From ₹${rates.geyser}`;
+            const cctvCard = document.getElementById('cctvCardRate');
+            if (cctvCard) cctvCard.innerText = `From ₹${rates.cctv}`;
+
+            // Update Estimator Buttons
+            const roBtnRate = document.getElementById('estBtnRORate');
+            if (roBtnRate) roBtnRate.innerText = `₹${rates.ro}`;
+            const geyserBtnRate = document.getElementById('estBtnGeyserRate');
+            if (geyserBtnRate) geyserBtnRate.innerText = `₹${rates.geyser}`;
+            const cctvBtnRate = document.getElementById('estBtnCCTVRate');
+            if (cctvBtnRate) cctvBtnRate.innerText = `₹${rates.cctv}`;
+
+            // Update admin inputs
+            const admRO = document.getElementById('admRateRO');
+            if (admRO) admRO.value = rates.ro;
+            const admGeyser = document.getElementById('admRateGeyser');
+            if (admGeyser) admGeyser.value = rates.geyser;
+            const admCCTV = document.getElementById('admRateCCTV');
+            if (admCCTV) admCCTV.value = rates.cctv;
+
+            // Update current calculator selection
+            if (estApp.includes('RO')) estAppCost = rates.ro;
+            else if (estApp.includes('Geyser')) estAppCost = rates.geyser;
+            else if (estApp.includes('CCTV')) estAppCost = rates.cctv;
+            updateCalc();
+        }
+
+        function selectAppliance(btn, cost, name) {
+            document.querySelectorAll('.app-btn').forEach(b => {
+                b.classList.remove('border-accent', 'text-txtPrimary', 'font-semibold');
+                b.classList.add('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            });
+            btn.classList.add('border-accent', 'text-txtPrimary', 'font-semibold');
+            btn.classList.remove('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            
+            estApp = name;
+            estAppCost = cost;
+            updateCalc();
+        }
+
+        function selectType(btn, cost, name) {
+            document.querySelectorAll('.type-btn').forEach(b => {
+                b.classList.remove('border-accent', 'text-txtPrimary', 'font-semibold');
+                b.classList.add('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            });
+            btn.classList.add('border-accent', 'text-txtPrimary', 'font-semibold');
+            btn.classList.remove('border-borderMuted', 'text-txtSecondary', 'font-medium');
+
+            estType = name;
+            estTypeCost = cost;
+            updateCalc();
+        }
+
+        function updateCalc() {
+            const total = estAppCost + estTypeCost;
+            const calcVal = document.getElementById('calcVal');
+            const calcDesc = document.getElementById('calcDesc');
+            if (calcVal) calcVal.innerText = total;
+            if (calcDesc) calcDesc.innerText = `${estApp} • ${estType}`;
+        }
+
+        function dispatchEstimatedWhatsApp() {
+            const total = estAppCost + estTypeCost;
+            const text = `Namaste Muske Home Appliances,\n\nMaine aapki website par estimate dekha:\n• Service: *${estApp}* (${estType})\n• Estimated Cost: *₹${total}*\n\nMujhe doorstep visit schedule karni hai.`;
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Admin Tab Switching
+        function switchAdminTab(tab) {
+            const tabRates = document.getElementById('adminTabRates');
+            const tabShowcase = document.getElementById('adminTabShowcase');
+            const btnRates = document.getElementById('tabBtnRates');
+            const btnShowcase = document.getElementById('tabBtnShowcase');
+
+            if (tab === 'rates') {
+                tabRates?.classList.remove('hidden');
+                tabShowcase?.classList.add('hidden');
+                btnRates?.classList.add('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnRates?.classList.remove('text-txtSecondary');
+                btnShowcase?.classList.remove('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnShowcase?.classList.add('text-txtSecondary');
+            } else {
+                tabRates?.classList.add('hidden');
+                tabShowcase?.classList.remove('hidden');
+                btnShowcase?.classList.add('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnShowcase?.classList.remove('text-txtSecondary');
+                btnRates?.classList.remove('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnRates?.classList.add('text-txtSecondary');
+                renderAdminSlidesList();
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // Admin Save Rates Logic
+        function saveAdminRates() {
+            const rRO = parseInt(document.getElementById('admRateRO')?.value || '299', 10);
+            const rGeyser = parseInt(document.getElementById('admRateGeyser')?.value || '249', 10);
+            const rCCTV = parseInt(document.getElementById('admRateCCTV')?.value || '399', 10);
+
+            rates.ro = rRO;
+            rates.geyser = rGeyser;
+            rates.cctv = rCCTV;
+
+            applyRatesToUI();
+            showAdminToast("Rates saved & updated across website successfully!");
+        }
+
+        // Admin Showcase Banner Management
+        let currentUploadedImageBase64 = '';
+
+        function previewBannerImage(event) {
+            const file = event.target.files[0];
+            const nameEl = document.getElementById('admFileName');
+            const previewBox = document.getElementById('admImagePreviewBox');
+            const previewImg = document.getElementById('admImagePreview');
+
+            if (!file) return;
+            if (nameEl) nameEl.innerText = file.name;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Compress / Resize image so it doesn't cause memory or rendering bloat
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const maxDim = 800;
+                    let width = img.width;
+                    let height = img.height;
+                    if (width > height && width > maxDim) {
+                        height = Math.round((height * maxDim) / width);
+                        width = maxDim;
+                    } else if (height > maxDim) {
+                        width = Math.round((width * maxDim) / height);
+                        height = maxDim;
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    currentUploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.82);
+
+                    if (previewImg) previewImg.src = currentUploadedImageBase64;
+                    if (previewBox) previewBox.classList.remove('hidden');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearBannerPreview() {
+            currentUploadedImageBase64 = '';
+            const previewBox = document.getElementById('admImagePreviewBox');
+            const previewImg = document.getElementById('admImagePreview');
+            const fileInput = document.getElementById('admBannerFile');
+            const nameEl = document.getElementById('admFileName');
+
+            if (previewBox) previewBox.classList.add('hidden');
+            if (previewImg) previewImg.src = '';
+            if (fileInput) fileInput.value = '';
+            if (nameEl) nameEl.innerText = 'No image chosen';
+        }
+
+        function addShowcaseBanner() {
+            const tag = document.getElementById('admBannerTag')?.value?.trim() || 'New Arrival • Muske Special';
+            const title = document.getElementById('admBannerTitle')?.value?.trim() || '';
+            const desc = document.getElementById('admBannerDesc')?.value?.trim() || '';
+
+            if (!title) {
+                showAdminToast("कृपया बैनर का Title ज़रूर लिखें!");
+                return;
+            }
+
+            const newSlide = {
+                id: Date.now(),
+                tag: tag,
+                title: title,
+                desc: desc || 'Direct certified doorstep installation & support available.',
+                points: ['Doorstep Inspection', 'Original OEM Parts', 'Instant WhatsApp Call'],
+                image: currentUploadedImageBase64,
+                inquire: title
+            };
+
+            // Prepend new slide to the beginning of showcase
+            showcaseSlides.unshift(newSlide);
+            currentSlide = 0;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+
+            // Clear inputs
+            document.getElementById('admBannerTag').value = '';
+            document.getElementById('admBannerTitle').value = '';
+            document.getElementById('admBannerDesc').value = '';
+            clearBannerPreview();
+
+            showAdminToast("नया बैनर सफलतापूर्वक Showcase विंडो में लाइव हो गया!");
+        }
+
+        function deleteAdminSlide(id) {
+            showcaseSlides = showcaseSlides.filter(s => s.id !== id);
+            if (showcaseSlides.length === 0) resetDefaultShowcase();
+            currentSlide = 0;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("स्लाइड हटा दी गई!");
+        }
+
+        function resetDefaultShowcase() {
+            showcaseSlides = [
+                {
+                    id: 0,
+                    tag: 'Fresh Stock • RO Water Purifier',
+                    title: 'Copper + Alkaline Mineral Infuser Cartridge',
+                    desc: 'साधारण RO के पानी में से मिनरल्स खत्म हो जाते हैं। हमारा नया कॉपर अल्कलाइन सिस्टम पानी का pH 8.5+ रखता है और नैचुरल कॉपर आयन घोलता है। पुराने किसी भी RO में फिट हो जाता है।',
+                    points: ['100% Copper Minerals', 'Free TDS Testing', 'Ready Stock @ Doorstep'],
+                    image: '',
+                    inquire: 'Copper Alkaline Mineral Cartridge for RO'
+                },
+                {
+                    id: 1,
+                    tag: 'Heavy Duty • Water Geyser',
+                    title: 'Titanium Glasslined Heating Element (खारे पानी का पक्का इलाज)',
+                    desc: 'बोरिंग या खारे पानी से गीज़र की कॉइल 6 महीने में जल जाती है। हमारी नई टाइटेनियम कोटेड हैवी कॉइल पर नमक और सफेद पपड़ी (Scale) नहीं जमती। 3 गुना लंबी लाइफ और कम बिजली बिल।',
+                    points: ['Hard Water Proof', '5-Star Power Saver', 'Instant Fitting Available'],
+                    image: '',
+                    inquire: 'Titanium Glasslined Heating Element for Geyser'
+                },
+                {
+                    id: 2,
+                    tag: 'Latest Camera • 4K CCTV',
+                    title: 'ColorVu 24/7 Full Color Night Vision + Mobile Phone Live',
+                    desc: 'रात के अंधेरे में भी काला-सफेद नहीं बल्कि बिल्कुल दिन जैसा रंगीन वीडियो। ह्यूमन डिटेक्शन अलार्म और आपके फोन पर बिना किसी रुकावट के लाइव फीड। दुकान, घर या ऑफिस के लिए बेस्ट।',
+                    points: ['Crystal Clear 4K Feeds', 'Mobile App Setup', 'Concealed Wiring Setup'],
+                    image: '',
+                    inquire: 'ColorVu 4K Smart Night Vision CCTV System'
+                }
+            ];
+            currentSlide = 0;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("डिफ़ॉल्ट स्लाइड्स रीसेट कर दी गईं!");
+        }
+
+        function renderAdminSlidesList() {
+            const listEl = document.getElementById('adminSlidesList');
+            if (!listEl) return;
+            listEl.innerHTML = showcaseSlides.map((s, idx) => `
+                <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-borderMuted text-xs">
+                    <div class="flex items-center gap-2 overflow-hidden">
+                        ${s.image ? `<img src="${s.image}" class="w-7 h-7 rounded object-cover shrink-0">` : `<div class="w-7 h-7 rounded bg-subtle flex items-center justify-center shrink-0 text-[10px] font-bold text-txtMuted">${idx+1}</div>`}
+                        <div class="truncate">
+                            <span class="font-semibold text-txtPrimary truncate block">${s.title}</span>
+                            <span class="text-[10px] text-txtMuted truncate block">${s.tag}</span>
+                        </div>
+                    </div>
+                    <button type="button" onclick="deleteAdminSlide(${s.id})" class="p-1 text-txtMuted hover:text-red-600 transition shrink-0" title="Delete Slide">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            `).join('');
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function showAdminToast(msg) {
+            const toast = document.getElementById('adminActionToast');
+            const msgEl = document.getElementById('adminToastMsg');
+            if (!toast || !msgEl) return;
+            msgEl.innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
             }
 
             // Update dot indicators
@@ -1100,7 +1534,8 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
+            renderShowcaseSlides();
+            applyRatesToUI();
             showSlide(0);
             startSlideTimer();
 
