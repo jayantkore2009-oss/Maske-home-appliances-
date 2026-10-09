@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muske Home Appliances — Trusted Engineering & Service</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        surface: '#FFFFFF',
+                        canvas: '#FAFAFA',
+                        subtle: '#F4F4F5',
+                        borderMuted: '#E4E4E7',
+                        txtPrimary: '#18181B',
+                        txtSecondary: '#71717A',
+                        txtMuted: '#A1A1AA',
+                        accent: '#09090B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #18181B;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.012em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .liquid-card {
+            background: #FFFFFF;
+            border: 1px solid #E4E4E7;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .liquid-card:hover {
+            transform: translateY(-2px);
+            border-color: #A1A1AA;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+        }
+
+        /* Windows Showcase Slider Styles */
+        .window-frame {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 228, 231, 0.9);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.02);
+        }
+
+        .slide-pane {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-txtPrimary bg-canvas flex flex-col justify-between">
+
+    <!-- Global Header -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-white/85 border-b border-borderMuted/80">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-txtPrimary"></span>
+                <span class="font-bold text-sm tracking-tight text-txtPrimary">Muske <span class="text-txtSecondary font-normal">Home Appliances</span></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-6 text-xs text-txtSecondary font-medium">
+                <a href="#new-arrivals" class="hover:text-txtPrimary transition flex items-center gap-1 text-emerald-600 font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> New Arrivals
+                </a>
+                <a href="#services" class="hover:text-txtPrimary transition">Services</a>
+                <a href="#pricing" class="hover:text-txtPrimary transition">Rate Estimator</a>
+                <a href="#reviews" class="hover:text-txtPrimary transition">Reviews</a>
+                <a href="#standards" class="hover:text-txtPrimary transition">Quality Standards</a>
+                <a href="#contact" class="hover:text-txtPrimary transition">Contact</a>
+            </div>
+
+            <!-- Direct Contact & Booking -->
+            <div class="flex items-center gap-3">
+                <a href="tel:+919022071274" class="text-xs font-semibold text-txtSecondary hover:text-txtPrimary flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>+91 90220 71274</span>
+                </a>
+                <button onclick="openBooking('General Inquire')" class="px-4 py-2 rounded-lg bg-accent text-white text-xs font-medium hover:bg-neutral-800 transition">
+                    Book Service
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-12 pb-8 sm:pt-20 sm:pb-12">
+        <div class="max-w-2xl space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-subtle border border-borderMuted text-[11px] font-medium text-txtSecondary">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Direct technician support • Doorstep visit as per your schedule</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight text-txtPrimary leading-[1.18]">
+                Professional installation & servicing for RO, Geyser & CCTV.
+            </h1>
+
+            <p class="text-sm sm:text-base text-txtSecondary leading-relaxed font-normal">
+                Koi fake billing nahi, direct certified technician. Transparent fixed inspection rates, genuine replacement spares aur complete doorstep satisfaction.
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+                <button onclick="openBooking('Doorstep Technician Visit')" class="px-5 py-3 rounded-xl bg-accent text-white text-xs font-medium hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm">
+                    <span>Schedule a Technician</span>
+                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                </button>
+
+                <a href="https://wa.me/919022071274?text=Namaste%20Muske%20Home%20Appliances,%20mujhe%20service%20ke%20liye%20technician%20schedule%20karna%20hai." target="_blank" class="px-5 py-3 rounded-xl bg-white border border-borderMuted text-txtPrimary text-xs font-medium hover:bg-subtle transition flex items-center gap-2 shadow-sm">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>Direct WhatsApp: 9022071274</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Highlights ribbon -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-10 border-t border-borderMuted/80 mt-10">
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Doorstep Timing</div>
+                <div class="text-sm font-semibold text-txtPrimary">Same-Day / As Per Slot</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Replacement Parts</div>
+                <div class="text-sm font-semibold text-txtPrimary">100% Original OEM</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Technicians</div>
+                <div class="text-sm font-semibold text-txtPrimary">Trained & Verified</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Direct Number</div>
+                <div class="text-sm font-semibold text-txtPrimary">9022071274</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW ARRIVALS WINDOW SHOWCASE SLIDER -->
+    <section id="new-arrivals" class="max-w-5xl mx-auto px-6 py-6">
+        <div class="window-frame rounded-3xl overflow-hidden p-6 sm:p-8 relative" id="showcaseWrapper">
+            
+            <!-- Window Top Bar -->
+            <div class="flex items-center justify-between pb-5 border-b border-borderMuted/70">
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3 h-3 rounded-full bg-rose-400/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-400/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-400/80 inline-block"></span>
+                    </div>
+                    <div class="h-4 w-px bg-borderMuted"></div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-txtPrimary tracking-tight">Muske Showcase Window</span>
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-[10px] font-semibold text-emerald-700 border border-emerald-200">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            नया क्या आया है (New Arrivals)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="flex items-center gap-2">
+                    <span class="text-[11px] text-txtMuted hidden sm:inline" id="slideStatusLabel">Auto-swapping (4.5s)</span>
+                    <button onclick="prevSlide()" aria-label="Previous Slide" class="w-7 h-7 rounded-lg border border-borderMuted hover:bg-subtle text-txtSecondary hover:text-txtPrimary flex items-center justify-center transition">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="nextSlide()" aria-label="Next Slide" class="w-7 h-7 rounded-lg border border-borderMuted hover:bg-subtle text-txtSecondary hover:text-txtPrimary flex items-center justify-center transition">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slides Injection Container -->
+            <div id="showcaseSlidesContainer" class="relative pt-6 min-h-[220px] sm:min-h-[260px] overflow-hidden">
+                <!-- Injected via JavaScript from showcaseSlides array -->
+            </div>
+
+            <!-- Bottom Pagination Dots -->
+            <div class="pt-6 mt-4 border-t border-borderMuted/70 flex items-center justify-between">
+                <div id="showcaseDotsContainer" class="flex items-center gap-2">
+                    <!-- Dynamic dots -->
+                </div>
+
+                <div class="text-[11px] text-txtMuted flex items-center gap-1">
+                    <span>स्लाइड <strong id="slideCounterText" class="text-txtPrimary">1</strong></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <div class="mb-8 flex items-baseline justify-between">
+            <div>
+                <h2 class="text-xl font-semibold tracking-tight text-txtPrimary">Core Services</h2>
+                <p class="text-xs text-txtSecondary mt-0.5">Expert repairs and neat installations</p>
+            </div>
+            <span class="text-xs text-txtMuted font-medium">RO • Geyser • CCTV</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- RO Card -->
+            <div class="liquid-card rounded-2xl p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                        <i data-lucide="droplet" class="w-5 h-5 text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-sm text-txtPrimary">RO & Water Purifiers</h3>
+                        <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                            Filter change, membrane washing, booster pump repair, TDS balancing, leakage repair & copper upgrade.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-txtSecondary space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Digital TDS Meter Testing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Food-Grade Spares & Filters</li>
+                    </ul>
+                </div>
+                <div class="pt-6 mt-6 border-t border-borderMuted flex items-center justify-between">
+                    <span id="roCardRate" class="text-xs font-semibold text-txtPrimary">From ₹299</span>
+                    <button onclick="openBooking('RO Water Purifier')" class="text-xs font-semibold text-txtPrimary hover:underline flex items-center gap-1">
+                        Book Visit <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Geyser Card -->
+            <div class="liquid-card rounded-2xl p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                        <i data-lucide="flame" class="w-5 h-5 text-amber-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-sm text-txtPrimary">Water Geysers</h3>
+                        <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                            Instant & storage geysers. Heating coil descaling, short-circuit issues, thermostat calibration & pipe fittings.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-txtSecondary space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Scale & Sediment Flushing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Auto Cut-Off Safety Check</li>
+                    </ul>
+                </div>
+                <div class="pt-6 mt-6 border-t border-borderMuted flex items-center justify-between">
+                    <span id="geyserCardRate" class="text-xs font-semibold text-txtPrimary">From ₹249</span>
+                    <button onclick="openBooking('Water Geyser')" class="text-xs font-semibold text-txtPrimary hover:underline flex items-center gap-1">
+                        Book Visit <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CCTV Card -->
+            <div class="liquid-card rounded-2xl p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                        <i data-lucide="camera" class="w-5 h-5 text-indigo-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-sm text-txtPrimary">CCTV & Surveillance</h3>
+                        <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                            Dome & bullet camera setup, DVR/NVR hard disk maintenance, mobile phone remote live view configuration.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-txtSecondary space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> High-Resolution Clear Feeds</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Neat & Concealed Wiring</li>
+                    </ul>
+                </div>
+                <div class="pt-6 mt-6 border-t border-borderMuted flex items-center justify-between">
+                    <span id="cctvCardRate" class="text-xs font-semibold text-txtPrimary">From ₹399</span>
+                    <button onclick="openBooking('CCTV Surveillance')" class="text-xs font-semibold text-txtPrimary hover:underline flex items-center gap-1">
+                        Book Visit <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4th Option: Customize / Other Appliance Request -->
+        <div class="mt-4 p-5 rounded-2xl bg-white border border-dashed border-borderMuted hover:border-txtPrimary transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="wrench" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-xs text-txtPrimary">Other Appliance / कुछ अलग काम है? (Customize)</h4>
+                    <p class="text-[11px] text-txtSecondary">RO, Geyser, CCTV ke alawa koi aur appliance ya fitting ka kaam ho to batayein.</p>
+                </div>
+            </div>
+            <button onclick="openBooking('Other / Custom Appliance')" class="px-4 py-2 rounded-xl bg-subtle hover:bg-txtPrimary hover:text-white text-xs font-semibold text-txtPrimary transition whitespace-nowrap">
+                Ask / Enquire Custom Task
+            </button>
+        </div>
+    </section>
+
+    <!-- PRICING & COST ESTIMATOR -->
+    <section id="pricing" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <h2 class="text-xl font-semibold tracking-tight text-txtPrimary">Quick Cost Estimator</h2>
+                    <p class="text-xs text-txtSecondary mt-1">Select your appliance to calculate standard inspection & starting charges.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs text-txtSecondary block mb-2 font-medium">1. Choose Appliance</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button type="button" onclick="selectAppliance(this, 'ro')" class="app-btn p-3 rounded-xl border border-accent bg-white text-xs font-semibold text-txtPrimary text-left">
+                                <div>RO Purifier</div>
+                                <span class="text-[11px] text-txtMuted font-normal" id="estBtnRORate">₹299</span>
+                            </button>
+                            <button type="button" onclick="selectAppliance(this, 'geyser')" class="app-btn p-3 rounded-xl border border-borderMuted bg-white text-xs font-medium text-txtSecondary hover:text-txtPrimary text-left">
+                                <div>Geyser</div>
+                                <span class="text-[11px] text-txtMuted font-normal" id="estBtnGeyserRate">₹249</span>
+                            </button>
+                            <button type="button" onclick="selectAppliance(this, 'cctv')" class="app-btn p-3 rounded-xl border border-borderMuted bg-white text-xs font-medium text-txtSecondary hover:text-txtPrimary text-left">
+                                <div>CCTV Cam</div>
+                                <span class="text-[11px] text-txtMuted font-normal" id="estBtnCCTVRate">₹399</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-txtSecondary block mb-2 font-medium">2. Service Type</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button type="button" onclick="selectType(this, 0, 'Inspection & Minor Fix')" class="type-btn p-3 rounded-xl border border-accent bg-white text-xs font-semibold text-txtPrimary text-left">
+                                Checkup & Minor Fix
+                            </button>
+                            <button type="button" onclick="selectType(this, 200, 'Full Servicing / Fitting')" class="type-btn p-3 rounded-xl border border-borderMuted bg-white text-xs font-medium text-txtSecondary hover:text-txtPrimary text-left">
+                                Complete Service (+₹200)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator Display -->
+                <div class="p-5 rounded-2xl bg-white border border-borderMuted flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <div class="text-[11px] text-txtMuted uppercase tracking-wider font-semibold">Estimated Base Rate</div>
+                        <div class="text-2xl font-bold text-txtPrimary mt-0.5">₹<span id="calcVal">299</span></div>
+                        <div class="text-xs text-txtSecondary" id="calcDesc">RO Water Purifier • Inspection & Minor Fix</div>
+                    </div>
+
+                    <button onclick="dispatchEstimatedWhatsApp()" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-medium hover:bg-neutral-800 transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        <span>Confirm on WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Annual Maintenance Card -->
+            <div class="lg:col-span-5 bg-white border border-borderMuted rounded-2xl p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-txtSecondary bg-subtle px-2.5 py-1 rounded-md">Annual AMC Plan</span>
+                    <span class="text-xs font-semibold text-txtPrimary">₹1,999 / year</span>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-sm text-txtPrimary">Total Home Peace of Mind</h3>
+                    <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                        Covers your RO + Geyser with quarterly preventive servicing and priority breakdown support all year.
+                    </p>
+                </div>
+                <ul class="text-xs text-txtSecondary space-y-2 border-t border-borderMuted pt-4">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> 4 Scheduled Health Checks</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Free Carbon & Sediment Cartridge</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Geyser Tank Descaling Visit</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Priority Attendance on Call</li>
+                </ul>
+                <button onclick="openBooking('Annual AMC Package (₹1,999)')" class="w-full py-2.5 rounded-xl border border-borderMuted bg-subtle hover:bg-white text-xs font-semibold text-txtPrimary transition">
+                    Opt for Annual Plan
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS & FEEDBACK SECTION -->
+    <section id="reviews" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-semibold text-amber-800 mb-2">
+                    ★ ग्राहक अनुभव (Verified Reviews)
+                </div>
+                <h2 class="text-xl font-semibold tracking-tight text-txtPrimary">Customer Reviews</h2>
+                <p class="text-xs text-txtSecondary mt-0.5">Muske Home Appliances की सर्विस पर असली ग्राहकों की राय</p>
+            </div>
+            <button onclick="toggleReviewFormModal()" class="px-4 py-2 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-1.5 w-fit shadow-sm">
+                <i data-lucide="message-square-plus" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>अपना रिव्यू लिखें (Write Review)</span>
+            </button>
+        </div>
+
+        <!-- Dynamic Reviews Grid Container -->
+        <div id="reviewsListGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-6 rounded-2xl bg-white border border-borderMuted text-center text-xs text-txtMuted col-span-3 py-10">
+                रिव्यूज लोड हो रहे हैं...
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBMIT REVIEW MODAL -->
+    <div id="reviewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white border border-borderMuted w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="toggleReviewFormModal()" class="absolute top-5 right-5 text-txtMuted hover:text-txtPrimary">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <h3 class="font-bold text-base text-txtPrimary">अपना रिव्यू शेयर करें</h3>
+            <p class="text-xs text-txtSecondary mt-0.5">आपका फीडबैक हमारे काम को और बेहतर बनाने में मदद करता है।</p>
+
+            <form onsubmit="handleReviewSubmit(event)" class="mt-4 space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">आपका पूरा नाम (Full Name) *</label>
+                    <input type="text" id="revAuthor" required placeholder="उदा. राहुल शर्मा" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs focus:outline-none focus:border-txtPrimary bg-white">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">कौन-सी सर्विस ली थी? *</label>
+                    <select id="revService" required class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs focus:outline-none focus:border-txtPrimary bg-white">
+                        <option value="RO Water Purifier">RO Water Purifier Service</option>
+                        <option value="Water Geyser Repair">Water Geyser Repair / Fitting</option>
+                        <option value="CCTV Camera Setup">CCTV Camera Setup</option>
+                        <option value="Other Service">अन्य काम (General Service)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">रेटिंग (Rating) *</label>
+                    <select id="revRating" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs font-semibold bg-white focus:outline-none focus:border-txtPrimary">
+                        <option value="5">★★★★★ (5/5) बहुत बढ़िया कार्य</option>
+                        <option value="4">★★★★☆ (4/5) अच्छा</option>
+                        <option value="3">★★★☆☆ (3/5) ठीक-ठाक</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-txtPrimary mb-1">आपका अनुभव (Feedback) *</label>
+                    <textarea id="revComment" rows="3" required placeholder="टेक्नीशियन का काम कैसा लगा? सही समय पर आए या नहीं?..." class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs focus:outline-none focus:border-txtPrimary bg-white resize-none"></textarea>
+                </div>
+
+                <button type="submit" id="btnSubmitReview" class="w-full py-2.5 rounded-xl bg-accent text-white text-xs font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2 shadow-sm">
+                    <span>रिव्यू पब्लिश करें (Submit Review)</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TRUST STANDARDS -->
+    <section id="standards" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <h2 class="text-xl font-semibold tracking-tight text-txtPrimary mb-8">Why Customers Trust Muske Home Appliances</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-txtPrimary uppercase tracking-wider">Original Spares Only</h4>
+                <p class="text-xs text-txtSecondary leading-relaxed">
+                    Koi duplicate ya local filter nahi. All parts are unboxed and checked right in front of you.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="calendar-clock" class="w-4 h-4 text-blue-600"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-txtPrimary uppercase tracking-wider">Scheduled Visit</h4>
+                <p class="text-xs text-txtSecondary leading-relaxed">
+                    We coordinate your free time beforehand so you don't have to wait aimlessly at home.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-600"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-txtPrimary uppercase tracking-wider">Direct Connect</h4>
+                <p class="text-xs text-txtSecondary leading-relaxed">
+                    Direct connect to 9022071274 without any middleman, hidden fees or app markups.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER WITH ADMIN ACCESS TRIGGER -->
+    <footer id="contact" class="border-t border-borderMuted/80 bg-white mt-12 py-10">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="w-2 h-2 rounded-full bg-txtPrimary"></span>
+                    <span class="font-semibold text-sm text-txtPrimary">Muske Home Appliances</span>
+                </div>
+                <p class="text-xs text-txtSecondary">RO Purifier • Water Geyser • CCTV Installation & Repair</p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-6 text-xs text-txtSecondary">
+                <a href="tel:+919022071274" class="hover:text-txtPrimary transition flex items-center gap-1.5 font-medium">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-600"></i> +91 90220 71274
+                </a>
+                <a href="https://wa.me/919022071274" target="_blank" class="hover:text-txtPrimary transition flex items-center gap-1.5 font-medium">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600"></i> WhatsApp: 9022071274
+                </a>
+                <span class="text-txtMuted">Timing: 8:00 AM – 9:00 PM</span>
+
+                <!-- Discreet Admin Access Button -->
+                <button onclick="toggleAdminModal()" class="flex items-center gap-1.5 text-txtMuted hover:text-txtPrimary transition pl-3 border-l border-borderMuted text-[11px]" title="Admin / Staff Login">
+                    <i data-lucide="lock" class="w-3 h-3 text-txtMuted"></i>
+                    <span id="adminStatusText">Admin Portal</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ADMIN CONSOLE MODAL (RATE EDITOR + SHOWCASE BANNER STUDIO) -->
+    <div id="adminModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white border border-borderMuted w-full max-w-lg rounded-3xl p-6 sm:p-7 relative shadow-2xl transform scale-95 transition-transform duration-200 max-h-[92vh] overflow-y-auto" id="adminContent">
+            <button onclick="closeAdminModal()" class="absolute top-5 right-5 text-txtMuted hover:text-txtPrimary">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <!-- 1. Logged Out State -->
+            <div id="adminLoggedOutState" class="text-center py-6 space-y-4">
+                <div class="w-12 h-12 mx-auto rounded-2xl bg-subtle border border-borderMuted flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="shield" class="w-6 h-6 text-txtPrimary"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-txtPrimary">Muske Admin Console</h3>
+                    <p class="text-xs text-txtSecondary mt-1">Sign in with authorized Google account to edit rates & showcase banners.</p>
+                </div>
+
+                <div class="pt-2">
+                    <button type="button" onclick="signInWithGoogleAdmin()" id="googleSignInBtn" class="w-full py-3 px-4 rounded-xl border border-borderMuted bg-white hover:bg-subtle transition font-semibold text-xs text-txtPrimary flex items-center justify-center gap-3 shadow-sm">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                        </svg>
+                        <span>Sign in with Google</span>
+                    </button>
+                    <p id="authErrorMsg" class="hidden text-xs text-red-500 mt-2 font-medium"></p>
+                </div>
+            </div>
+
+            <!-- 2. Access Denied State -->
+            <div id="adminAccessDeniedState" class="hidden text-center py-6 space-y-4">
+                <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600">
+                    <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-txtPrimary">Access Denied (अनधिकृत यूज़र)</h3>
+                    <p class="text-xs text-rose-600 font-medium mt-1" id="deniedUserEmail"></p>
+                    <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                        यह ईमेल एडमिन लिस्ट में नहीं है। केवल अधिकृत एडमिन <code>jayantkore2009@gmail.com</code> ही इस कंसोल को एक्सेस कर सकते हैं।
+                    </p>
+                </div>
+                <div class="pt-2">
+                    <button type="button" onclick="signOutAdmin()" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition">
+                        दूसरे Google अकाउंट से लॉगिन करें
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. Logged In Admin Workspace -->
+            <div id="adminLoggedInState" class="hidden space-y-5">
+                
+                <!-- Admin Header & Identity -->
+                <div class="flex items-center justify-between pb-3.5 border-b border-borderMuted">
+                    <div class="flex items-center gap-3">
+                        <img id="adminUserAvatar" src="" alt="Admin Avatar" class="w-9 h-9 rounded-full border border-borderMuted object-cover">
+                        <div>
+                            <div class="text-xs font-bold text-txtPrimary flex items-center gap-1.5">
+                                <span id="adminUserName">Admin</span>
+                                <span class="px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold">Authorized Staff</span>
+                            </div>
+                            <div class="text-[11px] text-txtSecondary" id="adminUserEmail"></div>
+                        </div>
+                    </div>
+                    <button onclick="signOutAdmin()" class="px-3 py-1.5 rounded-lg border border-borderMuted text-xs font-semibold text-txtSecondary hover:text-red-600 hover:border-red-300 transition">
+                        Sign Out
+                    </button>
+                </div>
+
+                <!-- Admin Action Tabs -->
+                <div class="flex border-b border-borderMuted gap-4 text-xs font-medium">
+                    <button id="tabBtnRates" type="button" onclick="switchAdminTab('rates')" class="pb-2 text-txtPrimary border-b-2 border-txtPrimary font-semibold transition">
+                        💰 Base Rates Editor (रेट बदलें)
+                    </button>
+                    <button id="tabBtnShowcase" type="button" onclick="switchAdminTab('showcase')" class="pb-2 text-txtSecondary hover:text-txtPrimary transition">
+                        🖼️ Showcase Studio (नया बैनर/फोटो)
+                    </button>
+                </div>
+
+                <!-- TAB 1: Base Rates Editor -->
+                <div id="adminTabRates" class="space-y-4">
+                    <div class="bg-subtle/70 p-3.5 rounded-2xl border border-borderMuted">
+                        <p class="text-xs text-txtSecondary leading-relaxed">
+                            यहाँ बेस रेट बदलें। <strong>"Save & Apply Rates"</strong> दबाते ही पूरी दुनिया के सभी यूज़र्स के लिए वेबसाइट पर तुरंत नया रेट दिखने लगेगा।
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">
+                                RO Water Purifier Base Rate (₹)
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-2.5 text-xs text-txtMuted font-bold">₹</span>
+                                <input type="number" id="admRateRO" value="299" min="0" step="10" class="w-full pl-7 pr-3 py-2 rounded-xl border border-borderMuted text-xs font-semibold text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">
+                                Water Geyser Base Rate (₹)
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-2.5 text-xs text-txtMuted font-bold">₹</span>
+                                <input type="number" id="admRateGeyser" value="249" min="0" step="10" class="w-full pl-7 pr-3 py-2 rounded-xl border border-borderMuted text-xs font-semibold text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">
+                                CCTV Camera Base Rate (₹)
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-2.5 text-xs text-txtMuted font-bold">₹</span>
+                                <input type="number" id="admRateCCTV" value="399" min="0" step="10" class="w-full pl-7 pr-3 py-2 rounded-xl border border-borderMuted text-xs font-semibold text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="saveAdminRates()" class="w-full py-2.5 rounded-xl bg-accent text-white text-xs font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2 shadow-sm mt-2">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Save & Apply Rates Across Website</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Showcase Banner & Photos Studio -->
+                <div id="adminTabShowcase" class="space-y-4 hidden">
+                    <div class="bg-subtle/70 p-3 rounded-2xl border border-borderMuted">
+                        <p class="text-[11px] text-txtSecondary">
+                            नया सामान, मशीन या पोस्टर अपलोड करें। <strong>अगर आप फोटो चुनते हैं, तो स्क्रीन पर सिर्फ और सिर्फ पूरी फोटो दिखेगी</strong> (कोई टेक्स्ट या टाइटल उस पर नहीं आएगा)।
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <!-- Photo Upload Picker -->
+                        <div>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Product / Festive Poster Photo (फोटो चुनें)</label>
+                            <input type="file" id="admBannerFile" accept="image/*" onchange="previewBannerImage(event)" class="text-xs text-txtSecondary file:mr-2.5 file:py-1.5 file:px-3 file:rounded-lg file:border file:border-borderMuted file:bg-white file:text-xs file:font-semibold hover:file:bg-subtle cursor-pointer">
+                            <div id="admImagePreviewBox" class="hidden mt-2 relative w-full h-36 rounded-xl border border-borderMuted overflow-hidden bg-subtle flex items-center justify-center">
+                                <img id="admImagePreview" src="" alt="Preview" class="w-full h-full object-contain">
+                                <button type="button" onclick="clearBannerPreview()" class="absolute top-2 right-2 w-6 h-6 rounded-full bg-black/80 text-white flex items-center justify-center text-xs">✕</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Tag / Category (वैकल्पिक - सिर्फ बिना फोटो वाली स्लाइड के लिए)</label>
+                            <input type="text" id="admBannerTag" placeholder="उदा. New Stock • RO Purifier / Festive Offer" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Main Title (शीर्षक / WhatsApp संदेश के लिए)</label>
+                            <input type="text" id="admBannerTitle" placeholder="उदा. Happy Durgotsav / New 100GPD Booster Pump" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Short Description (विवरण - सिर्फ टेक्स्ट स्लाइड के लिए)</label>
+                            <textarea id="admBannerDesc" rows="2" placeholder="ग्राहकों को दिखने वाला विवरण (अगर फोटो नहीं है)..." class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white resize-none"></textarea>
+                        </div>
+
+                        <button type="button" onclick="addShowcaseBanner()" class="w-full py-2.5 rounded-xl bg-accent text-white text-xs font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2 shadow-sm">
+                            <i data-lucide="plus" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Publish to Showcase Window</span>
+                        </button>
+
+                        <!-- Existing Slides List with Delete button -->
+                        <div class="pt-3 border-t border-borderMuted space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-txtPrimary">Active Showcase Slides</span>
+                                <button type="button" onclick="resetDefaultShowcase()" class="text-[10px] text-txtMuted hover:text-red-500 underline">Reset Defaults</button>
+                            </div>
+                            <div id="adminSlidesList" class="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                                <!-- Rendered dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toast Notification for Action Feedback -->
+                <div id="adminActionToast" class="hidden p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs font-medium text-emerald-900 flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+                    <span id="adminToastMsg">Changes saved!</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKING MODAL (10-DIGIT VALIDATION + OWN WORDS + GPS) -->
+    <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white border border-borderMuted w-full max-w-md rounded-2xl p-6 relative shadow-2xl transform scale-95 transition-transform duration-200 max-h-[92vh] overflow-y-auto" id="bookingContent">
+            <button onclick="closeBooking()" class="absolute top-5 right-5 text-txtMuted hover:text-txtPrimary">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <h3 class="font-semibold text-base text-txtPrimary">Book a Service Visit</h3>
+            <p class="text-xs text-txtSecondary mt-1">Directly connects with technician on WhatsApp (9022071274)</p>
+
+            <form onsubmit="submitForm(event)" class="mt-4 space-y-3">
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Your Name / आपका नाम</label>
+                    <input type="text" id="mName" required placeholder="Enter full name" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary">
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="block text-xs font-medium text-txtSecondary">Mobile Number / मोबाइल नंबर</label>
+                        <span class="text-[10px] text-txtMuted">Exactly 10 Digits</span>
+                    </div>
+                    <input type="tel" id="mPhone" maxlength="10" required placeholder="10-digit number (e.g. 9822XXXXXX)" oninput="validatePhoneInput(this)" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary">
+                    <p id="phoneError" class="hidden text-[11px] text-red-500 mt-1 font-medium">कृपया वैध 10-अंकों का भारतीय मोबाइल नंबर दर्ज करें (शुरुआत 6, 7, 8 या 9 से हो)।</p>
+                </div>
+
+                <!-- Service Dropdown: RO, Geyser, CCTV + Other / Custom -->
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Select Service / सर्विस चुनें</label>
+                    <select id="mServiceSelect" onchange="handleServiceChange()" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                        <option value="RO Water Purifier">RO Water Purifier (आरो वाटर प्यूरीफायर)</option>
+                        <option value="Water Geyser">Water Geyser (गीज़र रिपेयर या फिटिंग)</option>
+                        <option value="CCTV Camera Setup">CCTV Camera Setup (कैमरा फिटिंग / रिपेयर)</option>
+                        <option value="OTHER_CUSTOM">Other / Customize (कुछ अलग काम है?)</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Custom Description Field for Other Tasks -->
+                <div id="customApplianceBox" class="hidden p-3 rounded-xl bg-subtle border border-borderMuted space-y-1.5">
+                    <label class="block text-xs font-semibold text-txtPrimary">आप क्या काम करवाना चाहते हैं? (Can you do this?)</label>
+                    <input type="text" id="mCustomText" placeholder="उदा. वाशिंग मशीन फिटिंग, चिमनी रिपेयर, नया पाइपलाइन आदि" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                    <p class="text-[10px] text-txtSecondary">हम मैसेज देखकर तुरंत बताएंगे कि यह सर्विस उपलब्ध है या नहीं।</p>
+                </div>
+
+                <!-- Own-Words Problem Box -->
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="text-xs font-medium text-txtPrimary">क्या दिक्कत आ रही है? (Own Words)</label>
+                        <span class="text-[10px] text-txtMuted font-medium">Hindi / Marathi / English</span>
+                    </div>
+                    <textarea id="mProblem" rows="3" required placeholder="अपनी भाषा में लिखें क्या समस्या है? (उदा. RO से पानी बूंद-बूंद आ रहा है, गीज़र ऑन नहीं हो रहा, दुकान में 4 CCTV कैमरा फिट करवाने हैं, आदि)" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary resize-none"></textarea>
+                </div>
+
+                <!-- Preferred Timing Slot -->
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Preferred Time / कब आना चाहिए?</label>
+                    <select id="mSlot" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                        <option value="Same Day (Whenever technician is free)">Same Day (आज जब भी टेक्नीशियन फ्री हो)</option>
+                        <option value="Morning (9:00 AM - 1:00 PM)">Morning (9:00 AM - 1:00 PM)</option>
+                        <option value="Afternoon (1:00 PM - 5:00 PM)">Afternoon (1:00 PM - 5:00 PM)</option>
+                        <option value="Evening (5:00 PM - 8:30 PM)">Evening (5:00 PM - 8:30 PM)</option>
+                        <option value="Tomorrow / Scheduled Date">कल या आगे की तारीख (Scheduled)</option>
+                    </select>
+                </div>
+
+                <!-- Address Input + Live GPS Maps Button -->
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Address / Locality (एरिया / पता)</label>
+                    <input type="text" id="mLoc" required placeholder="Flat / Building / Colony name" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary">
+                </div>
+
+                <!-- 1-Tap Google Maps GPS Location Helper -->
+                <div class="p-3 rounded-xl border border-emerald-200 bg-emerald-50/60 space-y-2">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-700"></i>
+                            Exact Google Maps Live Location
+                        </span>
+                        <p class="text-[10px] text-emerald-800 leading-tight mt-0.5">
+                            <strong>कृपया अपने घर पर रहकर ही यह बटन दबाएं</strong> ताकि टेक्नीशियन बिना भटके सीधे आपके दरवाजे पर पहुंच सके।
+                        </p>
+                    </div>
+                    
+                    <button type="button" id="gpsBtn" onclick="getLiveLocation()" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center justify-center gap-2 transition shadow-sm">
+                        <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                        <span id="gpsBtnText">📍 Allow & Fetch My Exact House Location</span>
+                    </button>
+                    <div id="gpsStatusBox" class="hidden"></div>
+                    <input type="hidden" id="mGpsUrl" value="">
+                    <input type="hidden" id="mCoords" value="">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-2.5 rounded-lg bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center justify-center gap-2">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                        <span>Send Details on WhatsApp</span>
+                    </button>
+                    <p class="text-[10px] text-center text-txtMuted mt-1.5">Direct message to 9022071274 • No middleman</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT CORE -->
+    <script>
+        const BUSINESS_PHONE = "919022071274";
+
+        // Global Rates Model
+        let rates = {
+            ro: 299,
+            geyser: 249,
+            cctv: 399
+        };
+
+        const savedRates = localStorage.getItem('muske_rates');
+        if (savedRates) {
+            try {
+                rates = Object.assign(rates, JSON.parse(savedRates));
+            } catch (e) {
+                console.warn('Could not parse stored rates', e);
+            }
+        }
+
+        let selectedApplianceKey = 'ro';
+        let estAppTitle = 'RO Water Purifier';
+        let estTypeTitle = 'Inspection & Minor Fix';
+        let estExtraCost = 0;
+
+        // Default Showcase Slides
+        const defaultShowcaseSlides = [
+            {
+                id: 1,
+                tag: 'Fresh Stock • RO Purifier',
+                title: 'Copper + Alkaline Mineral Infuser Cartridge',
+                desc: 'साधारण RO के पानी में से मिनरल्स खत्म हो जाते हैं। हमारा नया कॉपर अल्कलाइन सिस्टम पानी का pH 8.5+ रखता है और नैचुरल कॉपर आयन घोलता है। पुराने किसी भी RO में फिट हो जाता है।',
+                image: ''
+            },
+            {
+                id: 2,
+                tag: 'Heavy Duty • Water Geyser',
+                title: 'Titanium Glasslined Heating Element (खारे पानी का पक्का इलाज)',
+                desc: 'बोरिंग या खारे पानी से गीज़र की कॉइल 6 महीने में जल जाती है। हमारी नई टाइटेनियम कोटेड हैवी कॉइल पर नमक और सफेद पपड़ी (Scale) नहीं जमती।',
+                image: ''
+            },
+            {
+                id: 3,
+                tag: 'Latest Camera • 4K CCTV',
+                title: 'ColorVu 24/7 Full Color Night Vision + Mobile Phone Live',
+                desc: 'रात के अंधेरे में भी काला-सफेद नहीं बल्कि बिल्कुल दिन जैसा रंगीन वीडियो। ह्यूमन डिटेक्शन अलार्म और आपके फोन पर बिना किसी रुकावट के लाइव फीड।',
+                image: ''
+            }
+        ];
+
+        let showcaseSlides = [...defaultShowcaseSlides];
+        const savedSlides = localStorage.getItem('muske_slides');
+        if (savedSlides) {
+            try {
+                showcaseSlides = JSON.parse(savedSlides);
+            } catch (e) {
+                console.warn('Could not parse stored slides', e);
+            }
+        }
+
+        let currentSlide = 0;
+        let slideTimer = null;
+        const SLIDE_DURATION = 4500;
+
+        function inquireArrival(encodedTitle) {
+            const title = decodeURIComponent(encodedTitle || 'Showcase Upgrade');
+            const text = `Namaste Muske Home Appliances,\n\nMujhe aapki website par naye upgrade ke baare me jankari chahiye:\n*${title}*\n\nIska price aur fitting time batayein.`;
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+        window.inquireArrival = inquireArrival;
+
+        // Render Showcase Slides dynamically (PURE FULL-IMAGE DISPLAY)
+        function renderShowcaseSlides() {
+            const container = document.getElementById('showcaseSlidesContainer');
+            const dotsContainer = document.getElementById('showcaseDotsContainer');
+            if (!container) return;
+
+            if (showcaseSlides.length === 0) {
+                showcaseSlides = [...defaultShowcaseSlides];
+            }
+
+            let slidesHtml = '';
+            showcaseSlides.forEach((s, idx) => {
+                const hiddenClass = idx === currentSlide ? '' : 'hidden opacity-0';
+
+                // नियम: अगर इमेज है, तो कोई टाइटल/विवरण नहीं दिखेगा - सिर्फ 100% फुल इमेज दिखेगी
+                if (s.image) {
+                    slidesHtml += `
+                        <div class="slide-pane absolute inset-0 w-full h-full flex flex-col justify-center items-center ${hiddenClass}" id="slide-${idx}">
+                            <div class="relative w-full h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-borderMuted bg-zinc-950 flex items-center justify-center group shadow-sm">
+                                <img src="${s.image}" alt="Showcase Poster" class="w-full h-full object-contain">
+                                <div class="absolute bottom-3 right-3 z-10">
+                                    <button onclick="inquireArrival('${encodeURIComponent(s.title || 'Festive Poster')}')" class="px-3.5 py-2 rounded-xl bg-black/80 hover:bg-black text-white text-xs font-semibold backdrop-blur-md border border-white/20 transition flex items-center gap-1.5 shadow-lg">
+                                        <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                        <span>Inquire on WhatsApp</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // टेक्स्ट वाली स्लाइड (अगर कोई इमेज न हो)
+                    slidesHtml += `
+                        <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${hiddenClass}" id="slide-${idx}">
+                            <div class="space-y-2.5 max-w-xl">
+                                <div class="flex items-center gap-2">
+                                    <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 text-[10px] font-bold tracking-wide uppercase border border-blue-200">
+                                        ${s.tag || 'New Arrival • Muske Special'}
+                                    </span>
+                                </div>
+                                <h3 class="text-base sm:text-xl font-bold tracking-tight text-txtPrimary leading-snug">
+                                    ${s.title}
+                                </h3>
+                                <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
+                                    ${s.desc || ''}
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
+                                <button onclick="inquireArrival('${encodeURIComponent(s.title)}')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm whitespace-nowrap">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                    <span>Inquire on WhatsApp</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            container.innerHTML = slidesHtml;
+
+            // Render Dots
+            if (dotsContainer) {
+                dotsContainer.innerHTML = showcaseSlides.map((_, idx) => `
+                    <button onclick="goToSlide(${idx})" class="dot-indicator h-1.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'w-6 bg-txtPrimary' : 'w-2 bg-borderMuted'}"></button>
+                `).join('');
+            }
+
+            const counterEl = document.getElementById('slideCounterText');
+            if (counterEl) {
+                counterEl.innerHTML = `${currentSlide + 1}</strong> / ${showcaseSlides.length}`;
+            }
+
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function showSlide(index) {
+            if (!showcaseSlides || showcaseSlides.length === 0) return;
+            currentSlide = (index + showcaseSlides.length) % showcaseSlides.length;
+
+            showcaseSlides.forEach((_, i) => {
+                const pane = document.getElementById(`slide-${i}`);
+                if (!pane) return;
+                if (i === currentSlide) {
+                    pane.classList.remove('hidden');
+                    void pane.offsetWidth;
+                    pane.classList.remove('opacity-0');
+                    pane.classList.add('opacity-100');
+                } else {
+                    pane.classList.add('opacity-0');
+                    pane.classList.add('hidden');
+                    pane.classList.remove('opacity-100');
+                }
+            });
+
+            const dots = document.querySelectorAll('.dot-indicator');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlide) {
+                    dot.classList.remove('w-2', 'bg-borderMuted');
+                    dot.classList.add('w-6', 'bg-txtPrimary');
+                } else {
+                    dot.classList.remove('w-6', 'bg-txtPrimary');
+                    dot.classList.add('w-2', 'bg-borderMuted');
+                }
+            });
+
+            const counterText = document.getElementById('slideCounterText');
+            if (counterText) counterText.innerText = (currentSlide + 1);
+            if (window.lucide) lucide.createIcons();
+        }
+        window.showSlide = showSlide;
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+            resetSlideTimer();
+        }
+        window.nextSlide = nextSlide;
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+            resetSlideTimer();
+        }
+        window.prevSlide = prevSlide;
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetSlideTimer();
+        }
+        window.goToSlide = goToSlide;
+
+        function startSlideTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, SLIDE_DURATION);
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideTimer);
+            startSlideTimer();
+        }
+
+        // Apply Rates to UI
+        function applyRatesToUI() {
+            const roCard = document.getElementById('roCardRate');
+            if (roCard) roCard.innerText = `From ₹${rates.ro}`;
+            const geyserCard = document.getElementById('geyserCardRate');
+            if (geyserCard) geyserCard.innerText = `From ₹${rates.geyser}`;
+            const cctvCard = document.getElementById('cctvCardRate');
+            if (cctvCard) cctvCard.innerText = `From ₹${rates.cctv}`;
+
+            const roBtnRate = document.getElementById('estBtnRORate');
+            if (roBtnRate) roBtnRate.innerText = `₹${rates.ro}`;
+            const geyserBtnRate = document.getElementById('estBtnGeyserRate');
+            if (geyserBtnRate) geyserBtnRate.innerText = `₹${rates.geyser}`;
+            const cctvBtnRate = document.getElementById('estBtnCCTVRate');
+            if (cctvBtnRate) cctvBtnRate.innerText = `₹${rates.cctv}`;
+
+            const admRO = document.getElementById('admRateRO');
+            if (admRO) admRO.value = rates.ro;
+            const admGeyser = document.getElementById('admRateGeyser');
+            if (admGeyser) admGeyser.value = rates.geyser;
+            const admCCTV = document.getElementById('admRateCCTV');
+            if (admCCTV) admCCTV.value = rates.cctv;
+
+            updateCalc();
+        }
+        window.applyRatesToUI = applyRatesToUI;
+
+        function selectAppliance(btn, key) {
+            document.querySelectorAll('.app-btn').forEach(b => {
+                b.classList.remove('border-accent', 'text-txtPrimary', 'font-semibold');
+                b.classList.add('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            });
+            btn.classList.add('border-accent', 'text-txtPrimary', 'font-semibold');
+            btn.classList.remove('border-borderMuted', 'text-txtSecondary', 'font-medium');
+
+            selectedApplianceKey = key;
+            if (key === 'ro') estAppTitle = 'RO Water Purifier';
+            if (key === 'geyser') estAppTitle = 'Water Geyser';
+            if (key === 'cctv') estAppTitle = 'CCTV Camera System';
+
+            updateCalc();
+        }
+
+        function selectType(btn, extraCost, typeName) {
+            document.querySelectorAll('.type-btn').forEach(b => {
+                b.classList.remove('border-accent', 'text-txtPrimary', 'font-semibold');
+                b.classList.add('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            });
+            btn.classList.add('border-accent', 'text-txtPrimary', 'font-semibold');
+            btn.classList.remove('border-borderMuted', 'text-txtSecondary', 'font-medium');
+
+            estExtraCost = extraCost;
+            estTypeTitle = typeName;
+            updateCalc();
+        }
+
+        function updateCalc() {
+            const base = rates[selectedApplianceKey] || rates.ro;
+            const total = base + estExtraCost;
+            const valEl = document.getElementById('calcVal');
+            const descEl = document.getElementById('calcDesc');
+            if (valEl) valEl.innerText = total;
+            if (descEl) descEl.innerText = `${estAppTitle} • ${estTypeTitle}`;
+        }
+
+        function dispatchEstimatedWhatsApp() {
+            const base = rates[selectedApplianceKey] || rates.ro;
+            const total = base + estExtraCost;
+            const text = `Namaste Muske Home Appliances,\n\nMaine aapki website par estimate dekha:\n• Service: *${estAppTitle}* (${estTypeTitle})\n• Estimated Cost: *₹${total}*\n\nMujhe doorstep visit schedule karni hai.`;
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Admin Tab Switcher
+        function switchAdminTab(tab) {
+            const tabRates = document.getElementById('adminTabRates');
+            const tabShowcase = document.getElementById('adminTabShowcase');
+            const btnRates = document.getElementById('tabBtnRates');
+            const btnShowcase = document.getElementById('tabBtnShowcase');
+
+            if (tab === 'rates') {
+                tabRates?.classList.remove('hidden');
+                tabShowcase?.classList.add('hidden');
+                btnRates?.classList.add('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnRates?.classList.remove('text-txtSecondary');
+                btnShowcase?.classList.remove('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnShowcase?.classList.add('text-txtSecondary');
+            } else {
+                tabRates?.classList.add('hidden');
+                tabShowcase?.classList.remove('hidden');
+                btnShowcase?.classList.add('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnShowcase?.classList.remove('text-txtSecondary');
+                btnRates?.classList.remove('border-b-2', 'border-txtPrimary', 'font-semibold', 'text-txtPrimary');
+                btnRates?.classList.add('text-txtSecondary');
+                renderAdminSlidesList();
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+        window.switchAdminTab = switchAdminTab;
+
+        // Save Admin Rates to State, LocalStorage and Cloud Firestore
+        function saveAdminRates() {
+            const rRO = parseInt(document.getElementById('admRateRO')?.value || '299', 10);
+            const rGeyser = parseInt(document.getElementById('admRateGeyser')?.value || '249', 10);
+            const rCCTV = parseInt(document.getElementById('admRateCCTV')?.value || '399', 10);
+
+            rates.ro = isNaN(rRO) ? 299 : rRO;
+            rates.geyser = isNaN(rGeyser) ? 249 : rGeyser;
+            rates.cctv = isNaN(rCCTV) ? 399 : rCCTV;
+
+            localStorage.setItem('muske_rates', JSON.stringify(rates));
+            applyRatesToUI();
+
+            // Sync to Firestore for all users globally
+            if (window.syncRatesToFirestore) {
+                window.syncRatesToFirestore(rates);
+            }
+
+            showAdminToast("Rates saved & updated across the website worldwide!");
+        }
+        window.saveAdminRates = saveAdminRates;
+
+        // Showcase Banner Photo Management
+        let currentUploadedImageBase64 = '';
+
+        function previewBannerImage(event) {
+            const file = event.target.files[0];
+            const previewBox = document.getElementById('admImagePreviewBox');
+            const previewImg = document.getElementById('admImagePreview');
+
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const maxDim = 1200;
+                    let width = img.width;
+                    let height = img.height;
+                    if (width > height && width > maxDim) {
+                        height = Math.round((height * maxDim) / width);
+                        width = maxDim;
+                    } else if (height > maxDim) {
+                        width = Math.round((width * maxDim) / height);
+                        height = maxDim;
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    currentUploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.85);
+
+                    if (previewImg) previewImg.src = currentUploadedImageBase64;
+                    if (previewBox) previewBox.classList.remove('hidden');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+        window.previewBannerImage = previewBannerImage;
+
+        function clearBannerPreview() {
+            currentUploadedImageBase64 = '';
+            const previewBox = document.getElementById('admImagePreviewBox');
+            const previewImg = document.getElementById('admImagePreview');
+            const fileInput = document.getElementById('admBannerFile');
+
+            if (previewBox) previewBox.classList.add('hidden');
+            if (previewImg) previewImg.src = '';
+            if (fileInput) fileInput.value = '';
+        }
+        window.clearBannerPreview = clearBannerPreview;
+
+        function addShowcaseBanner() {
+            const title = document.getElementById('admBannerTitle')?.value?.trim() || 'Festive Poster / Announcement';
+            const tag = document.getElementById('admBannerTag')?.value?.trim() || 'Muske Special';
+            const desc = document.getElementById('admBannerDesc')?.value?.trim() || '';
+
+            if (!currentUploadedImageBase64 && !title) {
+                alert("कृपया कोई फोटो चुनें या टाइटल दर्ज करें!");
+                return;
+            }
+
+            const newSlide = {
+                id: Date.now(),
+                tag: tag,
+                title: title,
+                desc: desc,
+                image: currentUploadedImageBase64
+            };
+
+            showcaseSlides.unshift(newSlide);
+            localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+
+            // Sync to Firestore for all users globally
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
+
+            currentSlide = 0;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+
+            // Clear inputs
+            document.getElementById('admBannerTag').value = '';
+            document.getElementById('admBannerTitle').value = '';
+            document.getElementById('admBannerDesc').value = '';
+            clearBannerPreview();
+
+            showAdminToast("नया पोस्टर/बैनर सफलतापूर्वक सभी यूज़र्स के लिए लाइव हो गया!");
+        }
+        window.addShowcaseBanner = addShowcaseBanner;
+
+        // Move Slide Up / Down functions
+        function moveSlide(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= showcaseSlides.length) return;
+
+            const temp = showcaseSlides[index];
+            showcaseSlides[index] = showcaseSlides[targetIndex];
+            showcaseSlides[targetIndex] = temp;
+
+            localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
+            currentSlide = targetIndex;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("स्लाइड का क्रम बदल दिया गया!");
+        }
+        window.moveSlide = moveSlide;
+
+        // Drag & Drop Reordering Variables
+        let draggedIndex = null;
+
+        function handleDragStart(e, index) {
+            draggedIndex = index;
+            e.dataTransfer.effectAllowed = 'move';
+        }
+        window.handleDragStart = handleDragStart;
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+        window.handleDragOver = handleDragOver;
+
+        function handleDrop(e, targetIndex) {
+            e.preventDefault();
+            if (draggedIndex === null || draggedIndex === targetIndex) return;
+
+            const itemToMove = showcaseSlides.splice(draggedIndex, 1)[0];
+            showcaseSlides.splice(targetIndex, 0, itemToMove);
+
+            draggedIndex = null;
+            localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
+            currentSlide = targetIndex;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("स्लाइड्स का क्रम अपडेट हो गया!");
+        }
+        window.handleDrop = handleDrop;
+
+        function deleteAdminSlide(id) {
+            showcaseSlides = showcaseSlides.filter(s => s.id !== id);
+            if (showcaseSlides.length === 0) showcaseSlides = [...defaultShowcaseSlides];
+            localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
+
+            currentSlide = 0;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("स्लाइड हटा दी गई!");
+        }
+        window.deleteAdminSlide = deleteAdminSlide;
+
+        function resetDefaultShowcase() {
+            showcaseSlides = [...defaultShowcaseSlides];
+            localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
+            currentSlide = 0;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("डिफ़ॉल्ट स्लाइड्स रीसेट कर दी गईं!");
+        }
+        window.resetDefaultShowcase = resetDefaultShowcase;
+
+        function renderAdminSlidesList() {
+            const listEl = document.getElementById('adminSlidesList');
+            if (!listEl) return;
+            listEl.innerHTML = showcaseSlides.map((s, idx) => `
+                <div draggable="true" 
+                     ondragstart="handleDragStart(event, ${idx})"
+                     ondragover="handleDragOver(event)"
+                     ondrop="handleDrop(event, ${idx})"
+                     class="flex items-center justify-between p-2 rounded-xl bg-white border border-borderMuted text-xs gap-2 select-none hover:border-txtPrimary transition cursor-grab active:cursor-grabbing">
+                    
+                    <div class="flex items-center gap-2 overflow-hidden flex-1">
+                        <span class="text-txtMuted hover:text-txtPrimary cursor-grab font-bold px-0.5 text-xs">⠿</span>
+                        <span class="w-5 h-5 rounded-md bg-subtle flex items-center justify-center font-bold text-[10px] text-txtSecondary shrink-0">${idx + 1}</span>
+                        ${s.image ? `<img src="${s.image}" class="w-9 h-7 rounded-md object-cover border border-borderMuted shrink-0">` : `<div class="w-9 h-7 rounded-md bg-subtle flex items-center justify-center shrink-0 text-[10px] text-txtMuted font-bold">Aa</div>`}
+                        <div class="truncate">
+                            <span class="font-semibold text-txtPrimary truncate block text-[11px]">${s.title || 'Image Banner'}</span>
+                            <span class="text-[9px] text-txtMuted truncate block">${s.tag || ''}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button type="button" onclick="moveSlide(${idx}, -1)" ${idx === 0 ? 'disabled class="opacity-25 p-1"' : 'class="p-1 text-txtSecondary hover:text-txtPrimary"'} title="Move Up">
+                            ▲
+                        </button>
+                        <button type="button" onclick="moveSlide(${idx}, 1)" ${idx === showcaseSlides.length - 1 ? 'disabled class="opacity-25 p-1"' : 'class="p-1 text-txtSecondary hover:text-txtPrimary"'} title="Move Down">
+                            ▼
+                        </button>
+                        <button type="button" onclick="deleteAdminSlide(${s.id})" class="p-1 text-txtMuted hover:text-red-600 transition ml-1" title="Delete Slide">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            if (window.lucide) lucide.createIcons();
+        }
+        window.renderAdminSlidesList = renderAdminSlidesList;
+
+        function showAdminToast(msg) {
+            const toast = document.getElementById('adminActionToast');
+            const msgEl = document.getElementById('adminToastMsg');
+            if (!toast || !msgEl) return;
+            msgEl.innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Modal for Customer Review Form
+        function toggleReviewFormModal() {
+            const modal = document.getElementById('reviewModal');
+            if (!modal) return;
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+        }
+        window.toggleReviewFormModal = toggleReviewFormModal;
+
+        // Phone Validation (Strict 10 digits)
+        function validatePhoneInput(input) {
+            input.value = input.value.replace(/\D/g, '');
+            const errorElement = document.getElementById('phoneError');
+            if (input.value.length === 10 && /^[6-9]/.test(input.value)) {
+                errorElement?.classList.add('hidden');
+                input.classList.remove('border-red-400');
+            } else if (input.value.length > 0) {
+                errorElement?.classList.remove('hidden');
+                input.classList.add('border-red-400');
+            } else {
+                errorElement?.classList.add('hidden');
+                input.classList.remove('border-red-400');
+            }
+        }
+
+        function handleServiceChange() {
+            const select = document.getElementById('mServiceSelect');
+            const customBox = document.getElementById('customApplianceBox');
+            const customInput = document.getElementById('mCustomText');
+            if (select?.value === 'OTHER_CUSTOM') {
+                customBox?.classList.remove('hidden');
+                customInput?.setAttribute('required', 'required');
+            } else {
+                customBox?.classList.add('hidden');
+                customInput?.removeAttribute('required');
+            }
+        }
+
+        function openBooking(prefill) {
+            const select = document.getElementById('mServiceSelect');
+            if (select) {
+                if (prefill.includes('RO')) select.value = 'RO Water Purifier';
+                else if (prefill.includes('Geyser')) select.value = 'Water Geyser';
+                else if (prefill.includes('CCTV')) select.value = 'CCTV Camera Setup';
+                else if (prefill.includes('Other') || prefill.includes('Custom')) select.value = 'OTHER_CUSTOM';
+                else select.value = 'RO Water Purifier';
+            }
+            handleServiceChange();
+
+            const modal = document.getElementById('bookingModal');
+            const content = document.getElementById('bookingContent');
+            if (modal && content) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }
+        }
+
+        function closeBooking() {
+            const modal = document.getElementById('bookingModal');
+            const content = document.getElementById('bookingContent');
+            if (modal && content) {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                content.classList.add('scale-95');
+                content.classList.remove('scale-100');
+            }
+        }
+
+        // Geolocation GPS fetcher
+        function getLiveLocation() {
+            const btn = document.getElementById('gpsBtn');
+            const btnText = document.getElementById('gpsBtnText');
+            const gpsInput = document.getElementById('mGpsUrl');
+            const coordsInput = document.getElementById('mCoords');
+            const statusBox = document.getElementById('gpsStatusBox');
+
+            if (!navigator.geolocation) {
+                if (statusBox) {
+                    statusBox.className = "text-[11px] rounded-lg p-2.5 bg-amber-50 text-amber-900 border border-amber-200 block";
+                    statusBox.innerHTML = "⚠️ इस ब्राउज़र में GPS उपलब्ध नहीं है। ऊपर अपना फ्लैट नंबर व एरिया लिख दें।";
+                }
+                return;
+            }
+
+            if (statusBox) {
+                statusBox.className = "text-[11px] rounded-lg p-2 bg-sky-50 text-sky-950 border border-sky-200 block animate-pulse";
+                statusBox.innerHTML = `<strong>🔔 स्क्रीन पर 'Allow' दबाएं...</strong> GPS Coordinates फेच हो रहे हैं...`;
+            }
+            if (btnText) btnText.innerText = "Coordinates ट्रैक हो रहे हैं...";
+            if (btn) btn.disabled = true;
+
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const lat = pos.coords.latitude;
+                    const lng = pos.coords.longitude;
+                    const acc = Math.round(pos.coords.accuracy);
+
+                    if (coordsInput) coordsInput.value = `${lat}, ${lng} (±${acc}m)`;
+                    if (gpsInput) gpsInput.value = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+
+                    if (btn) {
+                        btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+                        btn.classList.add('bg-zinc-900', 'hover:bg-black');
+                        btn.disabled = false;
+                    }
+                    if (btnText) btnText.innerHTML = `✅ लोकेशन सेट (${lat.toFixed(4)}, ${lng.toFixed(4)})`;
+
+                    if (statusBox) {
+                        statusBox.className = "text-[11px] rounded-lg p-2.5 bg-emerald-100 text-emerald-950 border border-emerald-300 block";
+                        statusBox.innerHTML = `🎯 <strong>सटीक GPS मिला!</strong> Google Maps का सीधा ड्राइविंग नेविगेशन लिंक WhatsApp पर जुड़ गया है।`;
+                    }
+                    if (window.lucide) lucide.createIcons();
+                },
+                (err) => {
+                    if (btn) btn.disabled = false;
+                    if (btnText) btnText.innerText = "पुनः प्रयास करें / लोकेशन विकल्प";
+                    if (statusBox) {
+                        statusBox.className = "text-[11px] rounded-lg p-2.5 bg-amber-50 text-amber-950 border border-amber-300 block";
+                        statusBox.innerHTML = `⚠️ <strong>लोकेशन परमिशन नहीं मिली:</strong> कृपया ऊपर अपना फ्लैट व कॉलोनी का नाम लिख दें, या WhatsApp पर सीधे Live Location शेयर कर दें।`;
+                    }
+                },
+                { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+            );
+        }
+
+        // WhatsApp Submission Dispatcher
+        function submitForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('mName')?.value?.trim() || '';
+            const phone = document.getElementById('mPhone')?.value?.trim() || '';
+            const selectVal = document.getElementById('mServiceSelect')?.value || '';
+            const customText = document.getElementById('mCustomText')?.value?.trim() || '';
+            const problem = document.getElementById('mProblem')?.value?.trim() || '';
+            const slot = document.getElementById('mSlot')?.value || '';
+            const loc = document.getElementById('mLoc')?.value?.trim() || '';
+            const gpsUrl = document.getElementById('mGpsUrl')?.value?.trim() || '';
+            const coords = document.getElementById('mCoords')?.value?.trim() || '';
+
+            if (phone.length !== 10 || !/^[6-9][0-9]{9}$/.test(phone)) {
+                const phoneErr = document.getElementById('phoneError');
+                if (phoneErr) phoneErr.classList.remove('hidden');
+                document.getElementById('mPhone')?.focus();
+                return;
+            }
+
+            let serviceFinal = selectVal;
+            if (selectVal === 'OTHER_CUSTOM') {
+                serviceFinal = `Custom Request: "${customText || 'Other Appliance'}"`;
+            }
+
+            let locationDetails = "";
+            if (coords && gpsUrl) {
+                locationDetails = `📍 *Exact GPS Coordinates:* ${coords}\n` +
+                                  `🚗 *Direct Doorstep Turn-by-Turn Map:*\n${gpsUrl}`;
+            } else {
+                const autoMapSearch = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc)}`;
+                locationDetails = `🚗 *Google Maps Navigation Link:*\n${autoMapSearch}\n` +
+                                  `_(Tip: WhatsApp chat me 'Share Live Location' bhi bhej sakte hain)_`;
+            }
+
+            const text = `*New Service Booking - Muske Home Appliances*\n\n` +
+                         `👤 *Customer Name:* ${name}\n` +
+                         `📞 *Phone Number:* ${phone}\n` +
+                         `🔧 *Appliance / Service:* ${serviceFinal}\n` +
+                         `💬 *Problem (Own Words):* ${problem}\n` +
+                         `⏰ *Preferred Slot:* ${slot}\n` +
+                         `🏠 *Doorstep Address:* ${loc}\n\n` +
+                         `${locationDetails}\n\n` +
+                         `_Muske Home Appliances: Direct verified doorstep technician support_`;
+
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+            closeBooking();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderShowcaseSlides();
+            applyRatesToUI();
+            showSlide(0);
+            startSlideTimer();
+
+            const wrapper = document.getElementById('showcaseWrapper');
+            const statusLabel = document.getElementById('slideStatusLabel');
+            if (wrapper) {
+                wrapper.addEventListener('mouseenter', () => {
+                    clearInterval(slideTimer);
+                    if (statusLabel) statusLabel.innerText = "Paused (reading)";
+                });
+                wrapper.addEventListener('mouseleave', () => {
+                    startSlideTimer();
+                    if (statusLabel) statusLabel.innerText = "Auto-swapping (4.5s)";
+                });
+            }
+        });
+    </script>
+
+    <!-- FIREBASE INITIALIZATION, CLOUD FIRESTORE REALTIME SYNC & REVIEWS MANAGEMENT -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot, setDoc, collection, addDoc, deleteDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyT2qqiskGcYVKTkSjPcnS_uBs9BNxfcU",
+            authDomain: "maske-home-applinces.firebaseapp.com",
+            projectId: "maske-home-applinces",
+            storageBucket: "maske-home-applinces.firebasestorage.app",
+            messagingSenderId: "575939684882",
+            appId: "1:575939684882:web:5b133332cb111c9f6b86cb",
+            measurementId: "G-PE4Z7TH5XB"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+
+        let isCurrentAdminUser = false;
+
+        /* AUTHORIZED ADMIN WHITELIST */
+        const AUTHORIZED_ADMINS = [
+            "jayantkore2009@gmail.com",
+            "jayantkore2009@gamail.com"
+        ];
+
+        /* Realtime Global Synchronization for Rates & Showcase Slides */
+        try {
+            const portalDocRef = doc(db, "portal_settings", "live_data");
+            onSnapshot(portalDocRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.data();
+
+                    /* 1. Sync updated rates worldwide */
+                    if (data.rates) {
+                        rates = Object.assign(rates, data.rates);
+                        localStorage.setItem('muske_rates', JSON.stringify(rates));
+                        if (window.applyRatesToUI) window.applyRatesToUI();
+                    }
+
+                    /* 2. Sync showcase slides worldwide */
+                    if (data.slides && Array.isArray(data.slides) && data.slides.length > 0) {
+                        showcaseSlides = data.slides;
+                        localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+                        if (window.renderShowcaseSlides) window.renderShowcaseSlides();
+                        if (window.renderAdminSlidesList) window.renderAdminSlidesList();
+                    }
+                }
+            }, (error) => {
+                console.warn("Firestore live listener active:", error);
+            });
+        } catch (err) {
+            console.warn("Firestore setup notice:", err);
+        }
+
+        window.syncRatesToFirestore = async function(updatedRates) {
+            try {
+                const portalDocRef = doc(db, "portal_settings", "live_data");
+                await setDoc(portalDocRef, { rates: updatedRates }, { merge: true });
+            } catch (e) {
+                console.error("Firestore rates sync error:", e);
+            }
+        };
+
+        window.syncSlidesToFirestore = async function(updatedSlides) {
+            try {
+                const portalDocRef = doc(db, "portal_settings", "live_data");
+                await setDoc(portalDocRef, { slides: updatedSlides }, { merge: true });
+            } catch (e) {
+                console.error("Firestore slides sync error:", e);
+            }
+        };
+
+        /* 3. Realtime Customer Reviews Sync & Renderer */
+        try {
+            const reviewsCol = collection(db, "public_reviews");
+            const reviewsQuery = query(reviewsCol, orderBy("createdAt", "desc"));
+
+            onSnapshot(reviewsQuery, (snapshot) => {
+                const listGrid = document.getElementById("reviewsListGrid");
+                if (!listGrid) return;
+
+                if (snapshot.empty) {
+                    listGrid.innerHTML = `
+                        <div class="p-8 rounded-2xl bg-white border border-borderMuted text-center text-xs text-txtMuted col-span-3">
+                            अभी तक कोई रिव्यू नहीं है। पहले ग्राहक बनें और अपना रिव्यू जोड़ें!
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = "";
+                snapshot.forEach((docSnap) => {
+                    const data = docSnap.data();
+                    const docId = docSnap.id;
+                    const ratingNum = data.rating || 5;
+                    const stars = "★".repeat(ratingNum) + "☆".repeat(5 - ratingNum);
+
+                    html += `
+                        <div class="liquid-card rounded-2xl p-5 flex flex-col justify-between relative group">
+                            <div class="space-y-2.5">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-amber-500 text-xs tracking-wider font-bold">${stars}</span>
+                                    ${isCurrentAdminUser ? `
+                                        <button onclick="deleteReview('${docId}')" class="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 transition" title="Delete Review (Admin Only)">
+                                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    ` : ''}
+                                </div>
+                                <p class="text-xs text-txtSecondary leading-relaxed italic">
+                                    "${data.comment}"
+                                </p>
+                            </div>
+
+                            <div class="pt-4 mt-4 border-t border-borderMuted/80 flex items-center justify-between">
+                                <div>
+                                    <div class="font-bold text-xs text-txtPrimary">${data.author}</div>
+                                    <div class="text-[10px] text-txtMuted">${data.service}</div>
+                                </div>
+                                <span class="text-[9px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold">Verified User</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                listGrid.innerHTML = html;
+                if (window.lucide) lucide.createIcons();
+            }, (error) => {
+                console.warn("Reviews listener fallback:", error);
+            });
+        } catch (err) {
+            console.warn("Reviews setup notice:", err);
+        }
+
+        // Submit Review Handler
+        window.handleReviewSubmit = async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById("btnSubmitReview");
+            const author = document.getElementById("revAuthor")?.value?.trim() || "";
+            const service = document.getElementById("revService")?.value || "";
+            const rating = parseInt(document.getElementById("revRating")?.value || "5", 10);
+            const comment = document.getElementById("revComment")?.value?.trim() || "";
+
+            if (!author || !comment) {
+                alert("कृपया अपना नाम और अनुभव दोनों लिखें!");
+                return;
+            }
+
+            if (btn) {
+                btn.disabled = true;
+                btn.innerText = "पब्लिश हो रहा है...";
+            }
+
+            try {
+                await addDoc(collection(db, "public_reviews"), {
+                    author,
+                    service,
+                    rating,
+                    comment,
+                    createdAt: serverTimestamp()
+                });
+
+                alert("आपका रिव्यू सफलतापूर्वक पब्लिश हो गया है! धन्यवाद।");
+                if (window.toggleReviewFormModal) window.toggleReviewFormModal();
+                e.target.reset();
+            } catch (err) {
+                console.error("Error submitting review:", err);
+                alert("रिव्यू सेव करने में समस्या आई। Firebase Console में Firestore Rules चेक करें।");
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerText = "रिव्यू पब्लिश करें (Submit Review)";
+                }
+            }
+        };
+
+        // Admin Delete Review Handler
+        window.deleteReview = async function(docId) {
+            if (!confirm("क्या आप वाकई इस रिव्यू को हमेशा के लिए डिलीट करना चाहते हैं?")) return;
+            try {
+                await deleteDoc(doc(db, "public_reviews", docId));
+                showAdminToast("रिव्यू सफलतापूर्वक हटा दिया गया!");
+            } catch (err) {
+                console.error("Error deleting review:", err);
+                alert("डिलीट करने की अनुमति नहीं मिली!");
+            }
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            const loggedInState = document.getElementById('adminLoggedInState');
+            const loggedOutState = document.getElementById('adminLoggedOutState');
+            const accessDeniedState = document.getElementById('adminAccessDeniedState');
+            const statusText = document.getElementById('adminStatusText');
+
+            if (user) {
+                const userEmail = (user.email || "").toLowerCase().trim();
+                const isAuthorized = AUTHORIZED_ADMINS.some(admin => admin.toLowerCase() === userEmail);
+
+                if (isAuthorized) {
+                    isCurrentAdminUser = true;
+                    if (loggedInState) loggedInState.classList.remove('hidden');
+                    if (loggedOutState) loggedOutState.classList.add('hidden');
+                    if (accessDeniedState) accessDeniedState.classList.add('hidden');
+                    if (statusText) statusText.innerText = `Admin (${user.displayName ? user.displayName.split(' ')[0] : 'Online'})`;
+
+                    const avatarEl = document.getElementById('adminUserAvatar');
+                    const nameEl = document.getElementById('adminUserName');
+                    const emailEl = document.getElementById('adminUserEmail');
+
+                    if (avatarEl) avatarEl.src = user.photoURL || 'https://placehold.co/80x80/09090b/ffffff?text=A';
+                    if (nameEl) nameEl.innerText = user.displayName || 'Authorized Admin';
+                    if (emailEl) emailEl.innerText = user.email || '';
+
+                    if (window.applyRatesToUI) window.applyRatesToUI();
+                } else {
+                    isCurrentAdminUser = false;
+                    if (loggedInState) loggedInState.classList.add('hidden');
+                    if (loggedOutState) loggedOutState.classList.add('hidden');
+                    if (accessDeniedState) accessDeniedState.classList.remove('hidden');
+                    const deniedEmailEl = document.getElementById('deniedUserEmail');
+                    if (deniedEmailEl) deniedEmailEl.innerText = user.email;
+                    if (statusText) statusText.innerText = 'Access Denied';
+                }
+            } else {
+                isCurrentAdminUser = false;
+                if (loggedInState) loggedInState.classList.add('hidden');
+                if (loggedOutState) loggedOutState.classList.remove('hidden');
+                if (accessDeniedState) accessDeniedState.classList.add('hidden');
+                if (statusText) statusText.innerText = 'Admin Portal';
+            }
+            if (window.lucide) lucide.createIcons();
+        });
+
+        window.signInWithGoogleAdmin = async function() {
+            const errEl = document.getElementById('authErrorMsg');
+            if (errEl) errEl.classList.add('hidden');
+            try {
+                await signInWithPopup(auth, provider);
+            } catch (err) {
+                console.error("Auth Error:", err);
+                if (errEl) {
+                    if (err.code === 'auth/unauthorized-domain') {
+                        const currentHost = window.location.hostname;
+                        errEl.innerHTML = `⚠️ <strong>Unauthorized Domain (${currentHost})</strong><br>Firebase Console &gt; Authentication &gt; Settings &gt; Authorized domains में जाकर <code>${currentHost}</code> Add करें।`;
+                    } else {
+                        errEl.innerText = err.message || "Sign-in was cancelled or encountered an error.";
+                    }
+                    errEl.classList.remove('hidden');
+                }
+            }
+        };
+
+        window.signOutAdmin = async function() {
+            try {
+                await signOut(auth);
+            } catch (err) {
+                console.error("Sign-out Error:", err);
+            }
+        };
+
+        window.toggleAdminModal = function() {
+            const modal = document.getElementById('adminModal');
+            const content = document.getElementById('adminContent');
+            if (!modal || !content) return;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        };
+
+        window.closeAdminModal = function() {
+            const modal = document.getElementById('adminModal');
+            const content = document.getElementById('adminContent');
+            if (!modal || !content) return;
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('scale-95');
+            content.classList.remove('scale-100');
+        };
+    </script>
+</body>
+</html>
