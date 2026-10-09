@@ -561,9 +561,127 @@
                     <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600"></i> WhatsApp: 9022071274
                 </a>
                 <span class="text-txtMuted">Timing: 8:00 AM – 9:00 PM</span>
+                <!-- Discreet Admin Access Trigger -->
+                <button onclick="toggleAdminModal()" class="flex items-center gap-1.5 text-txtMuted hover:text-txtPrimary transition pl-2 border-l border-borderMuted text-[11px]" title="Admin / Staff Login">
+                    <i data-lucide="lock" class="w-3 h-3 text-txtMuted"></i>
+                    <span id="adminStatusText">Admin Portal</span>
+                </button>
             </div>
         </div>
     </footer>
+
+    <!-- ADMIN AUTHENTICATION & DASHBOARD MODAL -->
+    <div id="adminModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white border border-borderMuted w-full max-w-lg rounded-3xl p-6 sm:p-8 relative shadow-2xl transform scale-95 transition-transform duration-200 max-h-[92vh] overflow-y-auto" id="adminContent">
+            <button onclick="closeAdminModal()" class="absolute top-5 right-5 text-txtMuted hover:text-txtPrimary">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <!-- Pre-Login State -->
+            <div id="adminLoggedOutState" class="text-center py-4 space-y-4">
+                <div class="w-12 h-12 mx-auto rounded-2xl bg-subtle border border-borderMuted flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="shield" class="w-6 h-6 text-txtPrimary"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-txtPrimary">Muske Admin Console</h3>
+                    <p class="text-xs text-txtSecondary mt-1">Sign in with your Google account to access bookings and portal controls.</p>
+                </div>
+
+                <div class="pt-2">
+                    <button type="button" onclick="signInWithGoogleAdmin()" id="googleSignInBtn" class="w-full py-3 px-4 rounded-xl border border-borderMuted bg-white hover:bg-subtle transition font-semibold text-xs text-txtPrimary flex items-center justify-center gap-3 shadow-sm">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </button>
+                    <p id="authErrorMsg" class="hidden text-xs text-red-500 mt-2 font-medium"></p>
+                </div>
+            </div>
+
+            <!-- Access Denied State (For unauthorized Google accounts) -->
+            <div id="adminAccessDeniedState" class="hidden text-center py-4 space-y-4">
+                <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600">
+                    <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-txtPrimary">Access Denied (अनधिकृत यूज़र)</h3>
+                    <p class="text-xs text-rose-600 font-medium mt-1" id="deniedUserEmail"></p>
+                    <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                        यह ईमेल एडमिन लिस्ट में नहीं है। केवल अधिकृत एडमिन <code>jayantkore2009@gmail.com</code> ही इस कंसोल को एक्सेस कर सकते हैं।
+                    </p>
+                </div>
+                <div class="pt-2">
+                    <button type="button" onclick="signOutAdmin()" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition">
+                        दूसरे Google अकाउंट से लॉगिन करें
+                    </button>
+                </div>
+            </div>
+
+            <!-- Logged-In Admin Dashboard State -->
+            <div id="adminLoggedInState" class="hidden space-y-6">
+                <!-- User Profile Header -->
+                <div class="flex items-center justify-between pb-4 border-b border-borderMuted">
+                    <div class="flex items-center gap-3">
+                        <img id="adminUserAvatar" src="" alt="Admin" class="w-10 h-10 rounded-full border border-borderMuted object-cover">
+                        <div>
+                            <div class="text-xs font-bold text-txtPrimary flex items-center gap-1.5">
+                                <span id="adminUserName">Admin</span>
+                                <span class="px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold">Verified Staff</span>
+                            </div>
+                            <div class="text-[11px] text-txtSecondary" id="adminUserEmail"></div>
+                        </div>
+                    </div>
+                    <button onclick="signOutAdmin()" class="px-3 py-1.5 rounded-lg border border-borderMuted text-xs font-semibold text-txtSecondary hover:text-red-600 hover:border-red-300 transition">
+                        Sign Out
+                    </button>
+                </div>
+
+                <!-- Fast Management Stats -->
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="p-3 rounded-xl bg-subtle border border-borderMuted text-center">
+                        <div class="text-[10px] text-txtSecondary font-medium">RO Base</div>
+                        <div class="text-sm font-bold text-txtPrimary mt-0.5">₹299</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-subtle border border-borderMuted text-center">
+                        <div class="text-[10px] text-txtSecondary font-medium">Geyser Base</div>
+                        <div class="text-sm font-bold text-txtPrimary mt-0.5">₹249</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-subtle border border-borderMuted text-center">
+                        <div class="text-[10px] text-txtSecondary font-medium">CCTV Base</div>
+                        <div class="text-sm font-bold text-txtPrimary mt-0.5">₹399</div>
+                    </div>
+                </div>
+
+                <!-- Direct Actions -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-txtPrimary">Quick Admin Actions</h4>
+                    
+                    <a href="https://wa.me/919022071274" target="_blank" class="w-full p-3 rounded-xl border border-borderMuted hover:border-emerald-500 bg-white transition flex items-center justify-between text-xs font-medium">
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                            Check Incoming WhatsApp Booking Chats
+                        </span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-txtMuted"></i>
+                    </a>
+
+                    <a href="https://console.firebase.google.com/project/maske-home-applinces/authentication/users" target="_blank" class="w-full p-3 rounded-xl border border-borderMuted hover:border-txtPrimary bg-white transition flex items-center justify-between text-xs font-medium">
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="users" class="w-4 h-4 text-blue-600"></i>
+                            Manage Authorized Staff in Firebase Console
+                        </span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-txtMuted"></i>
+                    </a>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-950 leading-relaxed">
+                    <strong>✅ Firebase Connected:</strong> Your Google Account is actively authenticated with Project <code>maske-home-applinces</code>.
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
         <div class="bg-white border border-borderMuted w-full max-w-md rounded-2xl p-6 relative shadow-2xl transform scale-95 transition-transform duration-200 max-h-[92vh] overflow-y-auto" id="bookingContent">
@@ -1008,6 +1126,120 @@
                 }, { passive: true });
             }
         });
+    </script>
+
+    <!-- FIREBASE INITIALIZATION & AUTHENTICATION SCRIPT -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyT2qqiskGcYVKTkSjPcnS_uBs9BNxfcU",
+            authDomain: "maske-home-applinces.firebaseapp.com",
+            projectId: "maske-home-applinces",
+            storageBucket: "maske-home-applinces.firebasestorage.app",
+            messagingSenderId: "575939684882",
+            appId: "1:575939684882:web:5b133332cb111c9f6b86cb",
+            measurementId: "G-PE4Z7TH5XB"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // 🔒 AUTHORIZED ADMIN EMAILS (Strict Whitelist)
+        const AUTHORIZED_ADMINS = [
+            "jayantkore2009@gmail.com",
+            "jayantkore2009@gamail.com" // Typos safe check
+        ];
+
+        // Listen for Auth State Changes
+        onAuthStateChanged(auth, (user) => {
+            const loggedInState = document.getElementById('adminLoggedInState');
+            const loggedOutState = document.getElementById('adminLoggedOutState');
+            const accessDeniedState = document.getElementById('adminAccessDeniedState');
+            const statusText = document.getElementById('adminStatusText');
+
+            if (user) {
+                const userEmail = (user.email || "").toLowerCase().trim();
+                const isAuthorized = AUTHORIZED_ADMINS.some(admin => admin.toLowerCase() === userEmail);
+
+                if (isAuthorized) {
+                    if (loggedInState) loggedInState.classList.remove('hidden');
+                    if (loggedOutState) loggedOutState.classList.add('hidden');
+                    if (accessDeniedState) accessDeniedState.classList.add('hidden');
+                    if (statusText) statusText.innerText = `Admin (${user.displayName ? user.displayName.split(' ')[0] : 'Online'})`;
+
+                    const avatarEl = document.getElementById('adminUserAvatar');
+                    const nameEl = document.getElementById('adminUserName');
+                    const emailEl = document.getElementById('adminUserEmail');
+
+                    if (avatarEl) avatarEl.src = user.photoURL || 'https://placehold.co/80x80/09090b/ffffff?text=A';
+                    if (nameEl) nameEl.innerText = user.displayName || 'Authorized Admin';
+                    if (emailEl) emailEl.innerText = user.email || '';
+                } else {
+                    // Unauthorized user logged in
+                    if (loggedInState) loggedInState.classList.add('hidden');
+                    if (loggedOutState) loggedOutState.classList.add('hidden');
+                    if (accessDeniedState) accessDeniedState.classList.remove('hidden');
+                    const deniedEmailEl = document.getElementById('deniedUserEmail');
+                    if (deniedEmailEl) deniedEmailEl.innerText = user.email;
+                    if (statusText) statusText.innerText = 'Access Denied';
+                }
+            } else {
+                if (loggedInState) loggedInState.classList.add('hidden');
+                if (loggedOutState) loggedOutState.classList.remove('hidden');
+                if (accessDeniedState) accessDeniedState.classList.add('hidden');
+                if (statusText) statusText.innerText = 'Admin Portal';
+            }
+            if (window.lucide) window.lucide.createIcons();
+        });
+
+        // Expose functions globally for HTML buttons
+        window.signInWithGoogleAdmin = async function() {
+            const errEl = document.getElementById('authErrorMsg');
+            if (errEl) errEl.classList.add('hidden');
+            try {
+                await signInWithPopup(auth, provider);
+            } catch (err) {
+                console.error("Auth Error:", err);
+                if (errEl) {
+                    if (err.code === 'auth/unauthorized-domain') {
+                        const currentHost = window.location.hostname;
+                        errEl.innerHTML = `⚠️ <strong>Unauthorized Domain (${currentHost})</strong><br>Firebase Console &gt; Authentication &gt; Settings &gt; Authorized domains में जाकर <code>${currentHost}</code> को Add करें।`;
+                    } else {
+                        errEl.innerText = err.message || "Sign-in was cancelled or encountered an error.";
+                    }
+                    errEl.classList.remove('hidden');
+                }
+            }
+        };
+
+        window.signOutAdmin = async function() {
+            try {
+                await signOut(auth);
+            } catch (err) {
+                console.error("Sign-out Error:", err);
+            }
+        };
+
+        window.toggleAdminModal = function() {
+            const modal = document.getElementById('adminModal');
+            const content = document.getElementById('adminContent');
+            if (!modal || !content) return;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        };
+
+        window.closeAdminModal = function() {
+            const modal = document.getElementById('adminModal');
+            const content = document.getElementById('adminContent');
+            if (!modal || !content) return;
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('scale-95');
+            content.classList.remove('scale-100');
+        };
     </script>
 </body>
 </html>
