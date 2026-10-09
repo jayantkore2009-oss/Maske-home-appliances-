@@ -185,7 +185,7 @@
             </div>
 
             <!-- Slides Injection Container -->
-            <div id="showcaseSlidesContainer" class="relative pt-6 min-h-[220px] sm:min-h-[190px] overflow-hidden">
+            <div id="showcaseSlidesContainer" class="relative pt-6 min-h-[220px] sm:min-h-[260px] overflow-hidden">
                 <!-- Injected via JavaScript from showcaseSlides array -->
             </div>
 
@@ -538,7 +538,7 @@
                 <div id="adminTabRates" class="space-y-4">
                     <div class="bg-subtle/70 p-3.5 rounded-2xl border border-borderMuted">
                         <p class="text-xs text-txtSecondary leading-relaxed">
-                            यहाँ बेस रेट बदलें। <strong>"Save & Apply Rates"</strong> दबाते ही पूरी वेबसाइट के सर्विस कार्ड्स और कैलकुलेटर में तुरंत नया रेट दिखने लगेगा।
+                            यहाँ बेस रेट बदलें। <strong>"Save & Apply Rates"</strong> दबाते ही पूरी दुनिया के सभी यूज़र्स के लिए वेबसाइट पर तुरंत नया रेट दिखने लगेगा।
                         </p>
                     </div>
 
@@ -584,34 +584,34 @@
                 <div id="adminTabShowcase" class="space-y-4 hidden">
                     <div class="bg-subtle/70 p-3 rounded-2xl border border-borderMuted">
                         <p class="text-[11px] text-txtSecondary">
-                            नया सामान, मशीन या ऑफर का फोटो और टाइटल डालें। यह तुरंत होमपेज की स्लाइडर विंडो में जुड़ जाएगा।
+                            नया सामान, मशीन या पोस्टर अपलोड करें। <strong>अगर आप फोटो चुनते हैं, तो स्क्रीन पर सिर्फ और सिर्फ पूरी फोटो दिखेगी</strong> (कोई टेक्स्ट या टाइटल उस पर नहीं आएगा)।
                         </p>
                     </div>
 
                     <div class="space-y-3">
                         <!-- Photo Upload Picker -->
                         <div>
-                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Product / Appliance Photo (फोटो चुनें)</label>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Product / Festive Poster Photo (फोटो चुनें)</label>
                             <input type="file" id="admBannerFile" accept="image/*" onchange="previewBannerImage(event)" class="text-xs text-txtSecondary file:mr-2.5 file:py-1.5 file:px-3 file:rounded-lg file:border file:border-borderMuted file:bg-white file:text-xs file:font-semibold hover:file:bg-subtle cursor-pointer">
-                            <div id="admImagePreviewBox" class="hidden mt-2 relative w-32 h-24 rounded-xl border border-borderMuted overflow-hidden bg-subtle">
-                                <img id="admImagePreview" src="" alt="Preview" class="w-full h-full object-cover">
-                                <button type="button" onclick="clearBannerPreview()" class="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white flex items-center justify-center text-[10px]">✕</button>
+                            <div id="admImagePreviewBox" class="hidden mt-2 relative w-full h-36 rounded-xl border border-borderMuted overflow-hidden bg-subtle flex items-center justify-center">
+                                <img id="admImagePreview" src="" alt="Preview" class="w-full h-full object-contain">
+                                <button type="button" onclick="clearBannerPreview()" class="absolute top-2 right-2 w-6 h-6 rounded-full bg-black/80 text-white flex items-center justify-center text-xs">✕</button>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Tag / Category Badge</label>
-                            <input type="text" id="admBannerTag" placeholder="उदा. New Stock • RO Purifier / Special Offer" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Tag / Category (वैकल्पिक - सिर्फ बिना फोटो वाली स्लाइड के लिए)</label>
+                            <input type="text" id="admBannerTag" placeholder="उदा. New Stock • RO Purifier / Festive Offer" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Main Title (मुख्य नाम/हेडिंग)</label>
-                            <input type="text" id="admBannerTitle" placeholder="उदा. नया 100GPD Booster Pump उपलब्ध / हैवी कॉइल" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Main Title (शीर्षक / WhatsApp संदेश के लिए)</label>
+                            <input type="text" id="admBannerTitle" placeholder="उदा. Happy Durgotsav / New 100GPD Booster Pump" class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Short Description (विवरण)</label>
-                            <textarea id="admBannerDesc" rows="2" placeholder="ग्राहकों को दिखने वाला 1-2 लाइन का विवरण..." class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white resize-none"></textarea>
+                            <label class="block text-xs font-semibold text-txtPrimary mb-1">Short Description (विवरण - सिर्फ टेक्स्ट स्लाइड के लिए)</label>
+                            <textarea id="admBannerDesc" rows="2" placeholder="ग्राहकों को दिखने वाला विवरण (अगर फोटो नहीं है)..." class="w-full px-3 py-2 rounded-xl border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white resize-none"></textarea>
                         </div>
 
                         <button type="button" onclick="addShowcaseBanner()" class="w-full py-2.5 rounded-xl bg-accent text-white text-xs font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2 shadow-sm">
@@ -625,7 +625,7 @@
                                 <span class="text-xs font-bold text-txtPrimary">Active Showcase Slides</span>
                                 <button type="button" onclick="resetDefaultShowcase()" class="text-[10px] text-txtMuted hover:text-red-500 underline">Reset Defaults</button>
                             </div>
-                            <div id="adminSlidesList" class="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+                            <div id="adminSlidesList" class="space-y-1.5 max-h-48 overflow-y-auto pr-1">
                                 <!-- Rendered dynamically -->
                             </div>
                         </div>
@@ -748,7 +748,7 @@
     <script>
         const BUSINESS_PHONE = "919022071274";
 
-        // Dynamic Rates Model with LocalStorage persistence
+        // Global Rates Model
         let rates = {
             ro: 299,
             geyser: 249,
@@ -808,7 +808,14 @@
         let slideTimer = null;
         const SLIDE_DURATION = 4500;
 
-        // Render Showcase Slides dynamically
+        function inquireArrival(encodedTitle) {
+            const title = decodeURIComponent(encodedTitle || 'Showcase Upgrade');
+            const text = `Namaste Muske Home Appliances,\n\nMujhe aapki website par naye upgrade ke baare me jankari chahiye:\n*${title}*\n\nIska price aur fitting time batayein.`;
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+        window.inquireArrival = inquireArrival;
+
+        // Render Showcase Slides dynamically (PURE FULL-IMAGE DISPLAY)
         function renderShowcaseSlides() {
             const container = document.getElementById('showcaseSlidesContainer');
             const dotsContainer = document.getElementById('showcaseDotsContainer');
@@ -821,37 +828,49 @@
             let slidesHtml = '';
             showcaseSlides.forEach((s, idx) => {
                 const hiddenClass = idx === currentSlide ? '' : 'hidden opacity-0';
-                const imageEl = s.image ? `
-                    <div class="w-full sm:w-44 h-32 sm:h-28 rounded-2xl overflow-hidden border border-borderMuted shrink-0 shadow-sm bg-subtle">
-                        <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover">
-                    </div>
-                ` : '';
 
-                slidesHtml += `
-                    <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${hiddenClass}" id="slide-${idx}">
-                        <div class="space-y-2.5 max-w-xl">
-                            <div class="flex items-center gap-2">
-                                <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 text-[10px] font-bold tracking-wide uppercase border border-blue-200">
-                                    ${s.tag || 'New Arrival • Muske Special'}
-                                </span>
+                // नियम: अगर इमेज है, तो कोई टाइटल/विवरण नहीं दिखेगा - सिर्फ 100% फुल इमेज दिखेगी
+                if (s.image) {
+                    slidesHtml += `
+                        <div class="slide-pane absolute inset-0 w-full h-full flex flex-col justify-center items-center ${hiddenClass}" id="slide-${idx}">
+                            <div class="relative w-full h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-borderMuted bg-zinc-950 flex items-center justify-center group shadow-sm">
+                                <img src="${s.image}" alt="Showcase Poster" class="w-full h-full object-contain">
+                                <div class="absolute bottom-3 right-3 z-10">
+                                    <button onclick="inquireArrival('${encodeURIComponent(s.title || 'Festive Poster')}')" class="px-3.5 py-2 rounded-xl bg-black/80 hover:bg-black text-white text-xs font-semibold backdrop-blur-md border border-white/20 transition flex items-center gap-1.5 shadow-lg">
+                                        <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                        <span>Inquire on WhatsApp</span>
+                                    </button>
+                                </div>
                             </div>
-                            <h3 class="text-base sm:text-xl font-bold tracking-tight text-txtPrimary leading-snug">
-                                ${s.title}
-                            </h3>
-                            <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
-                                ${s.desc || ''}
-                            </p>
                         </div>
+                    `;
+                } else {
+                    // टेक्स्ट वाली स्लाइड (अगर कोई इमेज न हो)
+                    slidesHtml += `
+                        <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6 ${hiddenClass}" id="slide-${idx}">
+                            <div class="space-y-2.5 max-w-xl">
+                                <div class="flex items-center gap-2">
+                                    <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 text-[10px] font-bold tracking-wide uppercase border border-blue-200">
+                                        ${s.tag || 'New Arrival • Muske Special'}
+                                    </span>
+                                </div>
+                                <h3 class="text-base sm:text-xl font-bold tracking-tight text-txtPrimary leading-snug">
+                                    ${s.title}
+                                </h3>
+                                <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
+                                    ${s.desc || ''}
+                                </p>
+                            </div>
 
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
-                            ${imageEl}
-                            <button onclick="inquireArrival('${encodeURIComponent(s.title)}')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm whitespace-nowrap">
-                                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
-                                <span>Inquire on WhatsApp</span>
-                            </button>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
+                                <button onclick="inquireArrival('${encodeURIComponent(s.title)}')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm whitespace-nowrap">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                    <span>Inquire on WhatsApp</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
             });
 
             container.innerHTML = slidesHtml;
@@ -872,7 +891,7 @@
         }
 
         function showSlide(index) {
-            if (showcaseSlides.length === 0) return;
+            if (!showcaseSlides || showcaseSlides.length === 0) return;
             currentSlide = (index + showcaseSlides.length) % showcaseSlides.length;
 
             showcaseSlides.forEach((_, i) => {
@@ -905,21 +924,25 @@
             if (counterText) counterText.innerText = (currentSlide + 1);
             if (window.lucide) lucide.createIcons();
         }
+        window.showSlide = showSlide;
 
         function nextSlide() {
             showSlide(currentSlide + 1);
             resetSlideTimer();
         }
+        window.nextSlide = nextSlide;
 
         function prevSlide() {
             showSlide(currentSlide - 1);
             resetSlideTimer();
         }
+        window.prevSlide = prevSlide;
 
         function goToSlide(index) {
             showSlide(index);
             resetSlideTimer();
         }
+        window.goToSlide = goToSlide;
 
         function startSlideTimer() {
             if (slideTimer) clearInterval(slideTimer);
@@ -931,12 +954,6 @@
         function resetSlideTimer() {
             clearInterval(slideTimer);
             startSlideTimer();
-        }
-
-        function inquireArrival(encodedTitle) {
-            const title = decodeURIComponent(encodedTitle);
-            const text = `Namaste Muske Home Appliances,\n\nMujhe aapki website par naye upgrade ke baare me jankari chahiye:\n*${title}*\n\nIska price aur fitting time batayein.`;
-            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
         }
 
         // Apply Rates to UI
@@ -964,6 +981,7 @@
 
             updateCalc();
         }
+        window.applyRatesToUI = applyRatesToUI;
 
         function selectAppliance(btn, key) {
             document.querySelectorAll('.app-btn').forEach(b => {
@@ -1035,8 +1053,9 @@
             }
             if (window.lucide) lucide.createIcons();
         }
+        window.switchAdminTab = switchAdminTab;
 
-        // Save Admin Rates to State and LocalStorage
+        // Save Admin Rates to State, LocalStorage and Cloud Firestore
         function saveAdminRates() {
             const rRO = parseInt(document.getElementById('admRateRO')?.value || '299', 10);
             const rGeyser = parseInt(document.getElementById('admRateGeyser')?.value || '249', 10);
@@ -1048,8 +1067,15 @@
 
             localStorage.setItem('muske_rates', JSON.stringify(rates));
             applyRatesToUI();
-            showAdminToast("Rates saved & updated across the website!");
+
+            // Sync to Firestore for all users globally
+            if (window.syncRatesToFirestore) {
+                window.syncRatesToFirestore(rates);
+            }
+
+            showAdminToast("Rates saved & updated across the website worldwide!");
         }
+        window.saveAdminRates = saveAdminRates;
 
         // Showcase Banner Photo Management
         let currentUploadedImageBase64 = '';
@@ -1066,7 +1092,7 @@
                 const img = new Image();
                 img.onload = function() {
                     const canvas = document.createElement('canvas');
-                    const maxDim = 600;
+                    const maxDim = 1200;
                     let width = img.width;
                     let height = img.height;
                     if (width > height && width > maxDim) {
@@ -1080,7 +1106,7 @@
                     canvas.height = height;
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, width, height);
-                    currentUploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.8);
+                    currentUploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.85);
 
                     if (previewImg) previewImg.src = currentUploadedImageBase64;
                     if (previewBox) previewBox.classList.remove('hidden');
@@ -1089,6 +1115,7 @@
             };
             reader.readAsDataURL(file);
         }
+        window.previewBannerImage = previewBannerImage;
 
         function clearBannerPreview() {
             currentUploadedImageBase64 = '';
@@ -1100,6 +1127,7 @@
             if (previewImg) previewImg.src = '';
             if (fileInput) fileInput.value = '';
         }
+        window.clearBannerPreview = clearBannerPreview;
 
         function addShowcaseBanner() {
             const title = document.getElementById('admBannerTitle')?.value?.trim() || 'Festive Poster / Announcement';
@@ -1122,6 +1150,11 @@
             showcaseSlides.unshift(newSlide);
             localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
 
+            // Sync to Firestore for all users globally
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
+
             currentSlide = 0;
             renderShowcaseSlides();
             renderAdminSlidesList();
@@ -1132,8 +1165,9 @@
             document.getElementById('admBannerDesc').value = '';
             clearBannerPreview();
 
-            showAdminToast("नया पोस्टर/बैनर सफलतापूर्वक Showcase विंडो में लाइव हो गया!");
+            showAdminToast("नया पोस्टर/बैनर सफलतापूर्वक सभी यूज़र्स के लिए लाइव हो गया!");
         }
+        window.addShowcaseBanner = addShowcaseBanner;
 
         // Move Slide Up / Down functions
         function moveSlide(index, direction) {
@@ -1145,11 +1179,15 @@
             showcaseSlides[targetIndex] = temp;
 
             localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
             currentSlide = targetIndex;
             renderShowcaseSlides();
             renderAdminSlidesList();
             showAdminToast("स्लाइड का क्रम बदल दिया गया!");
         }
+        window.moveSlide = moveSlide;
 
         // Drag & Drop Reordering Variables
         let draggedIndex = null;
@@ -1158,11 +1196,13 @@
             draggedIndex = index;
             e.dataTransfer.effectAllowed = 'move';
         }
+        window.handleDragStart = handleDragStart;
 
         function handleDragOver(e) {
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
         }
+        window.handleDragOver = handleDragOver;
 
         function handleDrop(e, targetIndex) {
             e.preventDefault();
@@ -1173,31 +1213,43 @@
 
             draggedIndex = null;
             localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
             currentSlide = targetIndex;
             renderShowcaseSlides();
             renderAdminSlidesList();
             showAdminToast("स्लाइड्स का क्रम अपडेट हो गया!");
         }
+        window.handleDrop = handleDrop;
 
         function deleteAdminSlide(id) {
             showcaseSlides = showcaseSlides.filter(s => s.id !== id);
             if (showcaseSlides.length === 0) showcaseSlides = [...defaultShowcaseSlides];
             localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
 
             currentSlide = 0;
             renderShowcaseSlides();
             renderAdminSlidesList();
             showAdminToast("स्लाइड हटा दी गई!");
         }
+        window.deleteAdminSlide = deleteAdminSlide;
 
         function resetDefaultShowcase() {
             showcaseSlides = [...defaultShowcaseSlides];
             localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            if (window.syncSlidesToFirestore) {
+                window.syncSlidesToFirestore(showcaseSlides);
+            }
             currentSlide = 0;
             renderShowcaseSlides();
             renderAdminSlidesList();
             showAdminToast("डिफ़ॉल्ट स्लाइड्स रीसेट कर दी गईं!");
         }
+        window.resetDefaultShowcase = resetDefaultShowcase;
 
         function renderAdminSlidesList() {
             const listEl = document.getElementById('adminSlidesList');
@@ -1234,6 +1286,7 @@
             `).join('');
             if (window.lucide) lucide.createIcons();
         }
+        window.renderAdminSlidesList = renderAdminSlidesList;
 
         function showAdminToast(msg) {
             const toast = document.getElementById('adminActionToast');
@@ -1251,13 +1304,13 @@
             input.value = input.value.replace(/\D/g, '');
             const errorElement = document.getElementById('phoneError');
             if (input.value.length === 10 && /^[6-9]/.test(input.value)) {
-                errorElement.classList.add('hidden');
+                errorElement?.classList.add('hidden');
                 input.classList.remove('border-red-400');
             } else if (input.value.length > 0) {
-                errorElement.classList.remove('hidden');
+                errorElement?.classList.remove('hidden');
                 input.classList.add('border-red-400');
             } else {
-                errorElement.classList.add('hidden');
+                errorElement?.classList.add('hidden');
                 input.classList.remove('border-red-400');
             }
         }
@@ -1432,10 +1485,11 @@
         });
     </script>
 
-    <!-- FIREBASE INITIALIZATION & AUTHENTICATION SCRIPT -->
+    <!-- FIREBASE INITIALIZATION & CLOUD FIRESTORE REALTIME SYNC -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyAyT2qqiskGcYVKTkSjPcnS_uBs9BNxfcU",
@@ -1449,13 +1503,61 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db = getFirestore(app);
         const provider = new GoogleAuthProvider();
 
-        // 🔒 AUTHORIZED ADMIN WHITELIST
+        /* AUTHORIZED ADMIN WHITELIST */
         const AUTHORIZED_ADMINS = [
             "jayantkore2009@gmail.com",
             "jayantkore2009@gamail.com"
         ];
+
+        /* Realtime Global Synchronization for All Users Across the Globe */
+        try {
+            const portalDocRef = doc(db, "portal_settings", "live_data");
+            onSnapshot(portalDocRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.data();
+
+                    /* 1. Sync updated rates worldwide */
+                    if (data.rates) {
+                        rates = Object.assign(rates, data.rates);
+                        localStorage.setItem('muske_rates', JSON.stringify(rates));
+                        if (window.applyRatesToUI) window.applyRatesToUI();
+                    }
+
+                    /* 2. Sync showcase slides worldwide */
+                    if (data.slides && Array.isArray(data.slides) && data.slides.length > 0) {
+                        showcaseSlides = data.slides;
+                        localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+                        if (window.renderShowcaseSlides) window.renderShowcaseSlides();
+                        if (window.renderAdminSlidesList) window.renderAdminSlidesList();
+                    }
+                }
+            }, (error) => {
+                console.warn("Firestore live listener active:", error);
+            });
+        } catch (err) {
+            console.warn("Firestore setup notice:", err);
+        }
+
+        window.syncRatesToFirestore = async function(updatedRates) {
+            try {
+                const portalDocRef = doc(db, "portal_settings", "live_data");
+                await setDoc(portalDocRef, { rates: updatedRates }, { merge: true });
+            } catch (e) {
+                console.error("Firestore rates sync error:", e);
+            }
+        };
+
+        window.syncSlidesToFirestore = async function(updatedSlides) {
+            try {
+                const portalDocRef = doc(db, "portal_settings", "live_data");
+                await setDoc(portalDocRef, { slides: updatedSlides }, { merge: true });
+            } catch (e) {
+                console.error("Firestore slides sync error:", e);
+            }
+        };
 
         onAuthStateChanged(auth, (user) => {
             const loggedInState = document.getElementById('adminLoggedInState');
@@ -1481,7 +1583,6 @@
                     if (nameEl) nameEl.innerText = user.displayName || 'Authorized Admin';
                     if (emailEl) emailEl.innerText = user.email || '';
 
-                    // Pre-fill rate inputs
                     if (window.applyRatesToUI) window.applyRatesToUI();
                 } else {
                     if (loggedInState) loggedInState.classList.add('hidden');
@@ -1497,7 +1598,7 @@
                 if (accessDeniedState) accessDeniedState.classList.add('hidden');
                 if (statusText) statusText.innerText = 'Admin Portal';
             }
-            if (window.lucide) window.lucide.createIcons();
+            if (window.lucide) lucide.createIcons();
         });
 
         window.signInWithGoogleAdmin = async function() {
