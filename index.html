@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muske Home Appliances — Trusted Engineering & Service</title>
+    <!-- Modern Quiet Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        surface: '#FFFFFF',
+                        canvas: '#FAFAFA',
+                        subtle: '#F4F4F5',
+                        borderMuted: '#E4E4E7',
+                        txtPrimary: '#18181B',
+                        txtSecondary: '#71717A',
+                        txtMuted: '#A1A1AA',
+                        accent: '#09090B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #18181B;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.012em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .liquid-card {
+            background: #FFFFFF;
+            border: 1px solid #E4E4E7;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .liquid-card:hover {
+            transform: translateY(-2px);
+            border-color: #A1A1AA;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+        }
+
+        /* Windows Showcase Slider Styles */
+        .window-frame {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 228, 231, 0.9);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.02);
+        }
+
+        .slide-pane {
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-txtPrimary bg-canvas flex flex-col justify-between">
+
+    <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-white/85 border-b border-borderMuted/80">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-txtPrimary"></span>
+                <span class="font-bold text-sm tracking-tight text-txtPrimary">Muske <span class="text-txtSecondary font-normal">Home Appliances</span></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-6 text-xs text-txtSecondary font-medium">
+                <a href="#new-arrivals" class="hover:text-txtPrimary transition flex items-center gap-1 text-emerald-600 font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> New Arrivals
+                </a>
+                <a href="#services" class="hover:text-txtPrimary transition">Services</a>
+                <a href="#pricing" class="hover:text-txtPrimary transition">Rate Estimator</a>
+                <a href="#standards" class="hover:text-txtPrimary transition">Quality Standards</a>
+                <a href="#contact" class="hover:text-txtPrimary transition">Contact</a>
+            </div>
+
+            <!-- Direct Contact & Booking -->
+            <div class="flex items-center gap-3">
+                <a href="tel:+919022071274" class="text-xs font-semibold text-txtSecondary hover:text-txtPrimary flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>+91 90220 71274</span>
+                </a>
+                <button onclick="openBooking('General Inquire')" class="px-4 py-2 rounded-lg bg-accent text-white text-xs font-medium hover:bg-neutral-800 transition">
+                    Book Service
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="max-w-5xl mx-auto px-6 pt-12 pb-8 sm:pt-20 sm:pb-12">
+        <div class="max-w-2xl space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-subtle border border-borderMuted text-[11px] font-medium text-txtSecondary">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Direct technician support • Doorstep visit as per your schedule</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight text-txtPrimary leading-[1.18]">
+                Professional installation & servicing for RO, Geyser & CCTV.
+            </h1>
+
+            <p class="text-sm sm:text-base text-txtSecondary leading-relaxed font-normal">
+                Koi fake billing nahi, direct certified technician. Transparent fixed inspection rates, genuine replacement spares aur complete doorstep satisfaction.
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+                <button onclick="openBooking('Doorstep Technician Visit')" class="px-5 py-3 rounded-xl bg-accent text-white text-xs font-medium hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm">
+                    <span>Schedule a Technician</span>
+                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                </button>
+
+                <a href="https://wa.me/919022071274?text=Namaste%20Muske%20Home%20Appliances,%20mujhe%20service%20ke%20liye%20technician%20schedule%20karna%20hai." target="_blank" class="px-5 py-3 rounded-xl bg-white border border-borderMuted text-txtPrimary text-xs font-medium hover:bg-subtle transition flex items-center gap-2 shadow-sm">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>Direct WhatsApp: 9022071274</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Highlights ribbon -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-10 border-t border-borderMuted/80 mt-10">
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Doorstep Timing</div>
+                <div class="text-sm font-semibold text-txtPrimary">Same-Day / As Per Slot</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Replacement Parts</div>
+                <div class="text-sm font-semibold text-txtPrimary">100% Original OEM</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Technicians</div>
+                <div class="text-sm font-semibold text-txtPrimary">Trained & Verified</div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-xs text-txtMuted font-medium">Direct Number</div>
+                <div class="text-sm font-semibold text-txtPrimary">9022071274</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="new-arrivals" class="max-w-5xl mx-auto px-6 py-6">
+        <div class="window-frame rounded-3xl overflow-hidden p-6 sm:p-8 relative" id="showcaseWrapper">
+            
+            <!-- Window Top Bar (Apple / Windows Minimal Titlebar) -->
+            <div class="flex items-center justify-between pb-5 border-b border-borderMuted/70">
+                <div class="flex items-center gap-3">
+                    <!-- Window Controls (Classic clean dots) -->
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3 h-3 rounded-full bg-rose-400/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-400/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-400/80 inline-block"></span>
+                    </div>
+                    <div class="h-4 w-px bg-borderMuted"></div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-txtPrimary tracking-tight">Muske Showcase Window</span>
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-[10px] font-semibold text-emerald-700 border border-emerald-200">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            नया क्या आया है (New Arrivals)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Slider Controls & Auto-pause indicator -->
+                <div class="flex items-center gap-2">
+                    <span class="text-[11px] text-txtMuted hidden sm:inline" id="slideStatusLabel">Auto-swapping (4s)</span>
+                    <button onclick="prevSlide()" aria-label="Previous Slide" class="w-7 h-7 rounded-lg border border-borderMuted hover:bg-subtle text-txtSecondary hover:text-txtPrimary flex items-center justify-center transition">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="nextSlide()" aria-label="Next Slide" class="w-7 h-7 rounded-lg border border-borderMuted hover:bg-subtle text-txtSecondary hover:text-txtPrimary flex items-center justify-center transition">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative pt-6 min-h-[220px] sm:min-h-[190px] overflow-hidden">
+
+                <!-- SLIDE 1: Copper Alkaline RO -->
+                <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6" id="slide-0">
+                    <div class="space-y-3 max-w-xl">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 text-[10px] font-bold tracking-wide uppercase border border-blue-200">
+                                Fresh Stock • RO Water Purifier
+                            </span>
+                            <span class="text-xs text-txtMuted">Upgraded Technology</span>
+                        </div>
+                        <h3 class="text-lg sm:text-2xl font-bold tracking-tight text-txtPrimary">
+                            Copper + Alkaline Mineral Infuser Cartridge
+                        </h3>
+                        <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
+                            साधारण RO के पानी में से मिनरल्स खत्म हो जाते हैं। हमारा नया कॉपर अल्कलाइन सिस्टम पानी का pH 8.5+ रखता है और नैचुरल कॉपर आयन घोलता है। पुराने किसी भी RO में फिट हो जाता है।
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-medium text-txtPrimary pt-1">
+                            <span class="flex items-center gap-1.5 text-blue-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> 100% Copper Minerals</span>
+                            <span class="flex items-center gap-1.5 text-blue-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> Free TDS Testing</span>
+                            <span class="font-bold text-txtPrimary">Ready Stock @ Doorstep</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start sm:items-end justify-center gap-2 shrink-0">
+                        <button onclick="inquireArrival('Copper Alkaline Mineral Cartridge for RO')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            <span>Inquire / लगवाने के लिए WhatsApp करें</span>
+                        </button>
+                        <span class="text-[11px] text-txtMuted">Direct call or WhatsApp to 9022071274</span>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: Titanium Enamel Geyser -->
+                <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hidden opacity-0" id="slide-1">
+                    <div class="space-y-3 max-w-xl">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[10px] font-bold tracking-wide uppercase border border-amber-200">
+                                Heavy Duty • Water Geyser
+                            </span>
+                            <span class="text-xs text-txtMuted">Anti-Corrosion Tech</span>
+                        </div>
+                        <h3 class="text-lg sm:text-2xl font-bold tracking-tight text-txtPrimary">
+                            Titanium Glasslined Heating Element (खारे पानी का पक्का इलाज)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
+                            बोरिंग या खारे पानी से गीज़र की कॉइल 6 महीने में जल जाती है। हमारी नई टाइटेनियम कोटेड हैवी कॉइल पर नमक और सफेद पपड़ी (Scale) नहीं जमती। 3 गुना लंबी लाइफ और कम बिजली बिल।
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-medium text-txtPrimary pt-1">
+                            <span class="flex items-center gap-1.5 text-amber-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> Hard Water Proof</span>
+                            <span class="flex items-center gap-1.5 text-amber-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> 5-Star Power Saver</span>
+                            <span class="font-bold text-txtPrimary">Instant Fitting Available</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start sm:items-end justify-center gap-2 shrink-0">
+                        <button onclick="inquireArrival('Titanium Glasslined Heating Element for Geyser')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            <span>Inquire / कॉइल चेंज के लिए WhatsApp करें</span>
+                        </button>
+                        <span class="text-[11px] text-txtMuted">Direct call or WhatsApp to 9022071274</span>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: 4K Smart AI CCTV -->
+                <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hidden opacity-0" id="slide-2">
+                    <div class="space-y-3 max-w-xl">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-indigo-50 text-indigo-700 text-[10px] font-bold tracking-wide uppercase border border-indigo-200">
+                                Latest Camera • 4K CCTV
+                            </span>
+                            <span class="text-xs text-txtMuted">ColorVu Night Vision</span>
+                        </div>
+                        <h3 class="text-lg sm:text-2xl font-bold tracking-tight text-txtPrimary">
+                            ColorVu 24/7 Full Color Night Vision + Mobile Phone Live
+                        </h3>
+                        <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
+                            रात के अंधेरे में भी काला-सफेद नहीं बल्कि बिल्कुल दिन जैसा रंगीन वीडियो। ह्यूमन डिटेक्शन अलार्म और आपके फोन पर बिना किसी रुकावट के लाइव फीड। दुकान, घर या ऑफिस के लिए बेस्ट।
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-medium text-txtPrimary pt-1">
+                            <span class="flex items-center gap-1.5 text-indigo-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> Crystal Clear 4K Feeds</span>
+                            <span class="flex items-center gap-1.5 text-indigo-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> Mobile App Setup</span>
+                            <span class="font-bold text-txtPrimary">Concealed Wiring Setup</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start sm:items-end justify-center gap-2 shrink-0">
+                        <button onclick="inquireArrival('ColorVu 4K Smart Night Vision CCTV System')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            <span>Inquire / कैमरा लगाने हेतु WhatsApp करें</span>
+                        </button>
+                        <span class="text-[11px] text-txtMuted">Direct call or WhatsApp to 9022071274</span>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4: Annual Society & Commercial AMC -->
+                <div class="slide-pane absolute inset-0 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hidden opacity-0" id="slide-3">
+                    <div class="space-y-3 max-w-xl">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-purple-50 text-purple-700 text-[10px] font-bold tracking-wide uppercase border border-purple-200">
+                                Peace of Mind • Annual AMC
+                            </span>
+                            <span class="text-xs text-txtMuted">Complete Protection</span>
+                        </div>
+                        <h3 class="text-lg sm:text-2xl font-bold tracking-tight text-txtPrimary">
+                            Total Appliance Shield: साल भर Zero Labor Charges
+                        </h3>
+                        <p class="text-xs sm:text-sm text-txtSecondary leading-relaxed">
+                            बार-बार मैकेनिक बुलाने के खर्च से मुक्ति। 4 शेड्यूल्ड प्रीवेंटिव चेकअप, इमरजेंसी ब्रेकडाउन पर प्रायोरिटी विजिट और ओरिजिनल पार्ट्स पर डिस्काउंट। घर और सोसायटियों के लिए विशेष पैकेज।
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-medium text-txtPrimary pt-1">
+                            <span class="flex items-center gap-1.5 text-purple-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> 4 Routine Services</span>
+                            <span class="flex items-center gap-1.5 text-purple-600"><i data-lucide="check" class="w-3.5 h-3.5"></i> Free Filter Changes</span>
+                            <span class="font-bold text-txtPrimary">Starts @ ₹1,999/yr</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start sm:items-end justify-center gap-2 shrink-0">
+                        <button onclick="inquireArrival('Annual Appliance Shield AMC Plan')" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center gap-2 shadow-sm">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            <span>Inquire / AMC प्लान के लिए WhatsApp करें</span>
+                        </button>
+                        <span class="text-[11px] text-txtMuted">Direct call or WhatsApp to 9022071274</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Progress Bar & Dot Indicators -->
+            <div class="pt-6 mt-4 border-t border-borderMuted/70 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <button onclick="goToSlide(0)" class="dot-indicator h-1.5 rounded-full transition-all duration-300 w-6 bg-txtPrimary"></button>
+                    <button onclick="goToSlide(1)" class="dot-indicator h-1.5 rounded-full transition-all duration-300 w-2 bg-borderMuted"></button>
+                    <button onclick="goToSlide(2)" class="dot-indicator h-1.5 rounded-full transition-all duration-300 w-2 bg-borderMuted"></button>
+                    <button onclick="goToSlide(3)" class="dot-indicator h-1.5 rounded-full transition-all duration-300 w-2 bg-borderMuted"></button>
+                </div>
+
+                <div class="text-[11px] text-txtMuted flex items-center gap-1">
+                    <span>स्लाइड <strong id="slideCounterText" class="text-txtPrimary">1</strong> / 4</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="services" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <div class="mb-8 flex items-baseline justify-between">
+            <div>
+                <h2 class="text-xl font-semibold tracking-tight text-txtPrimary">Core Services</h2>
+                <p class="text-xs text-txtSecondary mt-0.5">Expert repairs and neat installations</p>
+            </div>
+            <span class="text-xs text-txtMuted font-medium">RO • Geyser • CCTV</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- RO Card -->
+            <div class="liquid-card rounded-2xl p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                        <i data-lucide="droplet" class="w-5 h-5 text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-sm text-txtPrimary">RO & Water Purifiers</h3>
+                        <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                            Filter change, membrane washing, booster pump repair, TDS balancing, leakage repair & copper upgrade.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-txtSecondary space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Digital TDS Meter Testing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Food-Grade Spares & Filters</li>
+                    </ul>
+                </div>
+                <div class="pt-6 mt-6 border-t border-borderMuted flex items-center justify-between">
+                    <span class="text-xs font-semibold text-txtPrimary">From ₹299</span>
+                    <button onclick="openBooking('RO Water Purifier')" class="text-xs font-semibold text-txtPrimary hover:underline flex items-center gap-1">
+                        Book Visit <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Geyser Card -->
+            <div class="liquid-card rounded-2xl p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                        <i data-lucide="flame" class="w-5 h-5 text-amber-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-sm text-txtPrimary">Water Geysers</h3>
+                        <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                            Instant & storage geysers. Heating coil descaling, short-circuit issues, thermostat calibration & pipe fittings.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-txtSecondary space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Scale & Sediment Flushing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Auto Cut-Off Safety Check</li>
+                    </ul>
+                </div>
+                <div class="pt-6 mt-6 border-t border-borderMuted flex items-center justify-between">
+                    <span class="text-xs font-semibold text-txtPrimary">From ₹249</span>
+                    <button onclick="openBooking('Water Geyser')" class="text-xs font-semibold text-txtPrimary hover:underline flex items-center gap-1">
+                        Book Visit <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CCTV Card -->
+            <div class="liquid-card rounded-2xl p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                        <i data-lucide="camera" class="w-5 h-5 text-indigo-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-sm text-txtPrimary">CCTV & Surveillance</h3>
+                        <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                            Dome & bullet camera setup, DVR/NVR hard disk maintenance, mobile phone remote live view configuration.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-txtSecondary space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> High-Resolution Clear Feeds</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Neat & Concealed Wiring</li>
+                    </ul>
+                </div>
+                <div class="pt-6 mt-6 border-t border-borderMuted flex items-center justify-between">
+                    <span class="text-xs font-semibold text-txtPrimary">From ₹399</span>
+                    <button onclick="openBooking('CCTV Surveillance')" class="text-xs font-semibold text-txtPrimary hover:underline flex items-center gap-1">
+                        Book Visit <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4th Option: Customize / Other Appliance Request -->
+        <div class="mt-4 p-5 rounded-2xl bg-white border border-dashed border-borderMuted hover:border-txtPrimary transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="wrench" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-xs text-txtPrimary">Other Appliance / कुछ अलग काम है? (Customize)</h4>
+                    <p class="text-[11px] text-txtSecondary">RO, Geyser, CCTV ke alawa koi aur appliance ya fitting ka kaam ho to batayein.</p>
+                </div>
+            </div>
+            <button onclick="openBooking('Other / Custom Appliance')" class="px-4 py-2 rounded-xl bg-subtle hover:bg-txtPrimary hover:text-white text-xs font-semibold text-txtPrimary transition whitespace-nowrap">
+                Ask / Enquire Custom Task
+            </button>
+        </div>
+    </section>
+
+    <section id="pricing" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <h2 class="text-xl font-semibold tracking-tight text-txtPrimary">Quick Cost Estimator</h2>
+                    <p class="text-xs text-txtSecondary mt-1">Select your appliance to calculate standard inspection & starting charges.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs text-txtSecondary block mb-2 font-medium">1. Choose Appliance</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button type="button" onclick="selectAppliance(this, 299, 'RO Water Purifier')" class="app-btn p-3 rounded-xl border border-accent bg-white text-xs font-semibold text-txtPrimary text-left">
+                                RO Purifier
+                            </button>
+                            <button type="button" onclick="selectAppliance(this, 249, 'Water Geyser')" class="app-btn p-3 rounded-xl border border-borderMuted bg-white text-xs font-medium text-txtSecondary hover:text-txtPrimary text-left">
+                                Geyser
+                            </button>
+                            <button type="button" onclick="selectAppliance(this, 399, 'CCTV Camera System')" class="app-btn p-3 rounded-xl border border-borderMuted bg-white text-xs font-medium text-txtSecondary hover:text-txtPrimary text-left">
+                                CCTV Cam
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-txtSecondary block mb-2 font-medium">2. Service Type</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button type="button" onclick="selectType(this, 0, 'Inspection & Minor Fix')" class="type-btn p-3 rounded-xl border border-accent bg-white text-xs font-semibold text-txtPrimary text-left">
+                                Checkup & Minor Fix
+                            </button>
+                            <button type="button" onclick="selectType(this, 200, 'Full Servicing / Fitting')" class="type-btn p-3 rounded-xl border border-borderMuted bg-white text-xs font-medium text-txtSecondary hover:text-txtPrimary text-left">
+                                Complete Service / Fitting (+₹200)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator Display -->
+                <div class="p-5 rounded-2xl bg-white border border-borderMuted flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <div class="text-[11px] text-txtMuted uppercase tracking-wider font-semibold">Estimated Base Rate</div>
+                        <div class="text-2xl font-bold text-txtPrimary mt-0.5">₹<span id="calcVal">299</span></div>
+                        <div class="text-xs text-txtSecondary" id="calcDesc">RO Water Purifier • Inspection & Minor Fix</div>
+                    </div>
+
+                    <button onclick="dispatchEstimatedWhatsApp()" class="px-4 py-2.5 rounded-xl bg-accent text-white text-xs font-medium hover:bg-neutral-800 transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        <span>Confirm on WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Annual Maintenance Card -->
+            <div class="lg:col-span-5 bg-white border border-borderMuted rounded-2xl p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-txtSecondary bg-subtle px-2.5 py-1 rounded-md">Annual AMC Plan</span>
+                    <span class="text-xs font-semibold text-txtPrimary">₹1,999 / year</span>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-sm text-txtPrimary">Total Home Peace of Mind</h3>
+                    <p class="text-xs text-txtSecondary mt-1 leading-relaxed">
+                        Covers your RO + Geyser with quarterly preventive servicing and priority breakdown support all year.
+                    </p>
+                </div>
+                <ul class="text-xs text-txtSecondary space-y-2 border-t border-borderMuted pt-4">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> 4 Scheduled Health Checks</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Free Carbon & Sediment Cartridge</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Geyser Tank Descaling Visit</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-txtPrimary"></i> Priority Attendance on Call</li>
+                </ul>
+                <button onclick="openBooking('Annual AMC Package (₹1,999)')" class="w-full py-2.5 rounded-xl border border-borderMuted bg-subtle hover:bg-white text-xs font-semibold text-txtPrimary transition">
+                    Opt for Annual Plan
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="standards" class="max-w-5xl mx-auto px-6 py-12 border-t border-borderMuted/80">
+        <h2 class="text-xl font-semibold tracking-tight text-txtPrimary mb-8">Why Customers Trust Muske Home Appliances</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-txtPrimary uppercase tracking-wider">Original Spares Only</h4>
+                <p class="text-xs text-txtSecondary leading-relaxed">
+                    Koi duplicate ya local filter nahi. All parts are unboxed and checked right in front of you.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="calendar-clock" class="w-4 h-4 text-blue-600"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-txtPrimary uppercase tracking-wider">Scheduled Visit</h4>
+                <p class="text-xs text-txtSecondary leading-relaxed">
+                    We coordinate your free time beforehand so you don't have to wait aimlessly at home.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-subtle flex items-center justify-center text-txtPrimary">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-600"></i>
+                </div>
+                <h4 class="text-xs font-semibold text-txtPrimary uppercase tracking-wider">Direct Direct Connect</h4>
+                <p class="text-xs text-txtSecondary leading-relaxed">
+                    Direct connect to 9022071274 without any middleman, hidden fees or app markups.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="border-t border-borderMuted/80 bg-white mt-12 py-10">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="w-2 h-2 rounded-full bg-txtPrimary"></span>
+                    <span class="font-semibold text-sm text-txtPrimary">Muske Home Appliances</span>
+                </div>
+                <p class="text-xs text-txtSecondary">RO Purifier • Water Geyser • CCTV Installation & Repair</p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-6 text-xs text-txtSecondary">
+                <a href="tel:+919022071274" class="hover:text-txtPrimary transition flex items-center gap-1.5 font-medium">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-600"></i> +91 90220 71274
+                </a>
+                <a href="https://wa.me/919022071274" target="_blank" class="hover:text-txtPrimary transition flex items-center gap-1.5 font-medium">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600"></i> WhatsApp: 9022071274
+                </a>
+                <span class="text-txtMuted">Timing: 8:00 AM – 9:00 PM</span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white border border-borderMuted w-full max-w-md rounded-2xl p-6 relative shadow-2xl transform scale-95 transition-transform duration-200 max-h-[92vh] overflow-y-auto" id="bookingContent">
+            <button onclick="closeBooking()" class="absolute top-5 right-5 text-txtMuted hover:text-txtPrimary">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <h3 class="font-semibold text-base text-txtPrimary">Book a Service Visit</h3>
+            <p class="text-xs text-txtSecondary mt-1">Directly connects with technician on WhatsApp (9022071274)</p>
+
+            <form onsubmit="submitForm(event)" class="mt-4 space-y-3">
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Your Name / आपका नाम</label>
+                    <input type="text" id="mName" required placeholder="Enter full name" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary">
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="block text-xs font-medium text-txtSecondary">Mobile Number / मोबाइल नंबर</label>
+                        <span class="text-[10px] text-txtMuted">Exactly 10 Digits</span>
+                    </div>
+                    <input type="tel" id="mPhone" maxlength="10" required placeholder="10-digit number (e.g. 9822XXXXXX)" oninput="validatePhoneInput(this)" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary">
+                    <p id="phoneError" class="hidden text-[11px] text-red-500 mt-1 font-medium">कृपया वैध 10-अंकों का भारतीय मोबाइल नंबर दर्ज करें (शुरुआत 6, 7, 8 या 9 से हो)।</p>
+                </div>
+
+                <!-- Service Dropdown: RO, Geyser, CCTV + Other / Custom -->
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Select Service / सर्विस चुनें</label>
+                    <select id="mServiceSelect" onchange="handleServiceChange()" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                        <option value="RO Water Purifier">RO Water Purifier (आरो वाटर प्यूरीफायर)</option>
+                        <option value="Water Geyser">Water Geyser (गीज़र रिपेयर या फिटिंग)</option>
+                        <option value="CCTV Camera Setup">CCTV Camera Setup (कैमरा फिटिंग / रिपेयर)</option>
+                        <option value="OTHER_CUSTOM">Other / Customize (कुछ अलग काम है?)</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Custom Description Field for Other Tasks -->
+                <div id="customApplianceBox" class="hidden p-3 rounded-xl bg-subtle border border-borderMuted space-y-1.5">
+                    <label class="block text-xs font-semibold text-txtPrimary">आप क्या काम करवाना चाहते हैं? (Can you do this?)</label>
+                    <input type="text" id="mCustomText" placeholder="उदा. वाशिंग मशीन फिटिंग, चिमनी रिपेयर, नया पाइपलाइन आदि" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                    <p class="text-[10px] text-txtSecondary">हम मैसेज देखकर तुरंत बताएंगे कि यह सर्विस उपलब्ध है या नहीं।</p>
+                </div>
+
+                <!-- Own-Words Problem Box -->
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="text-xs font-medium text-txtPrimary">क्या दिक्कत आ रही है? (Own Words)</label>
+                        <span class="text-[10px] text-txtMuted font-medium">Hindi / Marathi / English</span>
+                    </div>
+                    <textarea id="mProblem" rows="3" required placeholder="अपनी भाषा में लिखें क्या समस्या है? (उदा. RO से पानी बूंद-बूंद आ रहा है, गीज़र ऑन नहीं हो रहा, दुकान में 4 CCTV कैमरा फिट करवाने हैं, आदि)" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary resize-none"></textarea>
+                </div>
+
+                <!-- Preferred Timing Slot -->
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Preferred Time / कब आना चाहिए?</label>
+                    <select id="mSlot" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary bg-white">
+                        <option value="Same Day (Whenever technician is free)">Same Day (आज जब भी टेक्नीशियन फ्री हो)</option>
+                        <option value="Morning (9:00 AM - 1:00 PM)">Morning (9:00 AM - 1:00 PM)</option>
+                        <option value="Afternoon (1:00 PM - 5:00 PM)">Afternoon (1:00 PM - 5:00 PM)</option>
+                        <option value="Evening (5:00 PM - 8:30 PM)">Evening (5:00 PM - 8:30 PM)</option>
+                        <option value="Tomorrow / Scheduled Date">कल या आगे की तारीख (Scheduled)</option>
+                    </select>
+                </div>
+
+                <!-- Address Input + Live GPS Maps Button -->
+                <div>
+                    <label class="block text-xs font-medium text-txtSecondary mb-1">Address / Locality (एरिया / पता)</label>
+                    <input type="text" id="mLoc" required placeholder="Flat / Building / Colony name" class="w-full px-3 py-2 rounded-lg border border-borderMuted text-xs text-txtPrimary focus:outline-none focus:border-txtPrimary">
+                </div>
+
+                <!-- 1-Tap Google Maps GPS Location Helper -->
+                <div class="p-3 rounded-xl border border-emerald-200 bg-emerald-50/60 space-y-2">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-700"></i>
+                                Exact Google Maps Live Location
+                            </span>
+                            <p class="text-[10px] text-emerald-800 leading-tight mt-0.5">
+                                <strong>कृपया अपने घर पर रहकर ही यह बटन दबाएं</strong> ताकि टेक्नीशियन बिना भटके सीधे आपके दरवाजे पर पहुंच सके। (मैसेज भेजने के बाद आप GPS बंद कर सकते हैं)
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="gpsBtn" onclick="getLiveLocation()" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center justify-center gap-2 transition shadow-sm">
+                        <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                        <span id="gpsBtnText">📍 Allow & Fetch My Exact House Location</span>
+                    </button>
+                    <div id="gpsStatusBox" class="hidden"></div>
+                    <input type="hidden" id="mGpsUrl" value="">
+                    <input type="hidden" id="mCoords" value="">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-2.5 rounded-lg bg-accent text-white text-xs font-semibold hover:bg-neutral-800 transition flex items-center justify-center gap-2">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                        <span>Send Details on WhatsApp</span>
+                    </button>
+                    <p class="text-[10px] text-center text-txtMuted mt-1.5">Direct message to 9022071274 • No middleman</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const BUSINESS_PHONE = "919022071274";
+
+        let estApp = 'RO Water Purifier';
+        let estAppCost = 299;
+        let estType = 'Inspection & Minor Fix';
+        let estTypeCost = 0;
+
+        // Windows Style Showcase Slider Mechanics
+        let currentSlide = 0;
+        const totalSlides = 4;
+        let slideTimer = null;
+        const SLIDE_DURATION = 4500; // 4.5 seconds graceful pause
+
+        function showSlide(index) {
+            currentSlide = (index + totalSlides) % totalSlides;
+
+            for (let i = 0; i < totalSlides; i++) {
+                const pane = document.getElementById(`slide-${i}`);
+                if (!pane) continue;
+
+                if (i === currentSlide) {
+                    pane.classList.remove('hidden');
+                    // Trigger reflow for smooth CSS animation
+                    void pane.offsetWidth;
+                    pane.classList.remove('opacity-0');
+                    pane.classList.add('opacity-100');
+                } else {
+                    pane.classList.add('opacity-0');
+                    pane.classList.add('hidden');
+                    pane.classList.remove('opacity-100');
+                }
+            }
+
+            // Update dot indicators
+            const dots = document.querySelectorAll('.dot-indicator');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlide) {
+                    dot.classList.remove('w-2', 'bg-borderMuted');
+                    dot.classList.add('w-6', 'bg-txtPrimary');
+                } else {
+                    dot.classList.remove('w-6', 'bg-txtPrimary');
+                    dot.classList.add('w-2', 'bg-borderMuted');
+                }
+            });
+
+            // Update counter text
+            const counterText = document.getElementById('slideCounterText');
+            if (counterText) counterText.innerText = (currentSlide + 1);
+
+            lucide.createIcons();
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+            resetSlideTimer();
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+            resetSlideTimer();
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetSlideTimer();
+        }
+
+        function startSlideTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, SLIDE_DURATION);
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideTimer);
+            startSlideTimer();
+        }
+
+        function inquireArrival(productTitle) {
+            const text = `Namaste Muske Home Appliances,\n\nMujhe aapki website par naye upgrade ke baare me jankari chahiye:\n*${productTitle}*\n\nIska price aur fitting time batayein.`;
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function selectAppliance(btn, cost, name) {
+            document.querySelectorAll('.app-btn').forEach(b => {
+                b.classList.remove('border-accent', 'text-txtPrimary', 'font-semibold');
+                b.classList.add('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            });
+            btn.classList.add('border-accent', 'text-txtPrimary', 'font-semibold');
+            btn.classList.remove('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            
+            estApp = name;
+            estAppCost = cost;
+            updateCalc();
+        }
+
+        function selectType(btn, cost, name) {
+            document.querySelectorAll('.type-btn').forEach(b => {
+                b.classList.remove('border-accent', 'text-txtPrimary', 'font-semibold');
+                b.classList.add('border-borderMuted', 'text-txtSecondary', 'font-medium');
+            });
+            btn.classList.add('border-accent', 'text-txtPrimary', 'font-semibold');
+            btn.classList.remove('border-borderMuted', 'text-txtSecondary', 'font-medium');
+
+            estType = name;
+            estTypeCost = cost;
+            updateCalc();
+        }
+
+        function updateCalc() {
+            const total = estAppCost + estTypeCost;
+            document.getElementById('calcVal').innerText = total;
+            document.getElementById('calcDesc').innerText = `${estApp} • ${estType}`;
+        }
+
+        function dispatchEstimatedWhatsApp() {
+            const total = estAppCost + estTypeCost;
+            const text = `Namaste Muske Home Appliances,\n\nMaine aapki website par estimate dekha:\n• Service: *${estApp}* (${estType})\n• Estimated Cost: *₹${total}*\n\nMujhe doorstep visit schedule karni hai.`;
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Phone Validation (Strictly 10 digits only)
+        function validatePhoneInput(input) {
+            input.value = input.value.replace(/\D/g, '');
+            const errorElement = document.getElementById('phoneError');
+            if (input.value.length === 10 && /^[6-9]/.test(input.value)) {
+                errorElement.classList.add('hidden');
+                input.classList.remove('border-red-400');
+            } else if (input.value.length > 0) {
+                errorElement.classList.remove('hidden');
+                input.classList.add('border-red-400');
+            } else {
+                errorElement.classList.add('hidden');
+                input.classList.remove('border-red-400');
+            }
+        }
+
+        function handleServiceChange() {
+            const select = document.getElementById('mServiceSelect');
+            const customBox = document.getElementById('customApplianceBox');
+            const customInput = document.getElementById('mCustomText');
+            if (select.value === 'OTHER_CUSTOM') {
+                customBox.classList.remove('hidden');
+                customInput.setAttribute('required', 'required');
+            } else {
+                customBox.classList.add('hidden');
+                customInput.removeAttribute('required');
+            }
+        }
+
+        function openBooking(prefill) {
+            const select = document.getElementById('mServiceSelect');
+            if (prefill.includes('RO')) {
+                select.value = 'RO Water Purifier';
+            } else if (prefill.includes('Geyser')) {
+                select.value = 'Water Geyser';
+            } else if (prefill.includes('CCTV')) {
+                select.value = 'CCTV Camera Setup';
+            } else if (prefill.includes('Other') || prefill.includes('Custom')) {
+                select.value = 'OTHER_CUSTOM';
+            } else {
+                select.value = 'RO Water Purifier';
+            }
+            handleServiceChange();
+
+            const modal = document.getElementById('bookingModal');
+            const content = document.getElementById('bookingContent');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+
+        function closeBooking() {
+            const modal = document.getElementById('bookingModal');
+            const content = document.getElementById('bookingContent');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('scale-95');
+            content.classList.remove('scale-100');
+        }
+
+        // Smart Guided GPS Location Fetcher
+        function requestPermissionAndLocation() {
+            const btn = document.getElementById('gpsBtn');
+            const btnText = document.getElementById('gpsBtnText');
+            const gpsInput = document.getElementById('mGpsUrl');
+            const coordsInput = document.getElementById('mCoords');
+            const statusBox = document.getElementById('gpsStatusBox');
+
+            if (!navigator.geolocation) {
+                statusBox.className = "text-[11px] rounded-lg p-2.5 bg-amber-50 text-amber-900 border border-amber-200 block";
+                statusBox.innerHTML = "⚠️ इस ब्राउज़र में GPS उपलब्ध नहीं है। ऊपर अपना फ्लैट नंबर व एरिया लिख दें, मैप लिंक स्वतः तैयार हो जाएगा।";
+                return;
+            }
+
+            statusBox.className = "text-[11px] rounded-lg p-2.5 bg-sky-50 text-sky-950 border border-sky-200 block animate-pulse";
+            statusBox.innerHTML = `<strong>🔔 स्क्रीन पर 'Allow' या 'While using app' दबाएं...</strong><br>मोबाइल आपके घर के Coordinates (Latitude, Longitude) ढूंढ रहा है...`;
+            btnText.innerText = "Coordinates ट्रैक हो रहे हैं...";
+            btn.disabled = true;
+
+            const geoOptions = {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            };
+
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const lat = pos.coords.latitude;
+                    const lng = pos.coords.longitude;
+                    const acc = Math.round(pos.coords.accuracy);
+
+                    if (coordsInput) {
+                        coordsInput.value = `${lat}, ${lng} (±${acc}m)`;
+                    }
+                    const destinationUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+                    if (gpsInput) {
+                        gpsInput.value = destinationUrl;
+                    }
+
+                    btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+                    btn.classList.add('bg-zinc-900', 'hover:bg-black');
+                    btnText.innerHTML = `✅ घर की लोकेशन सेट (${lat.toFixed(4)}, ${lng.toFixed(4)})`;
+                    btn.disabled = false;
+
+                    statusBox.className = "text-[11px] rounded-lg p-2.5 bg-emerald-100 text-emerald-950 border border-emerald-300 block";
+                    statusBox.innerHTML = `🎯 <strong>सटीक GPS मिला!</strong><br>• Lat/Lng: <code>${lat.toFixed(6)}, ${lng.toFixed(6)}</code><br>टेक्नीशियन के लिए Google Maps का सीधा ड्राइविंग नेविगेशन लिंक WhatsApp पर जुड़ गया है!`;
+                    lucide.createIcons();
+                },
+                (err) => {
+                    btn.disabled = false;
+                    btnText.innerText = "पुनः प्रयास करें / लोकेशन विकल्प";
+                    
+                    statusBox.className = "text-[11px] rounded-lg p-3 bg-amber-50 text-amber-950 border border-amber-300 block space-y-1.5";
+                    
+                    let errorTip = "";
+                    if (err.code === 1) {
+                        errorTip = `
+                            <strong>⚠️ ब्राउज़र ने परमिशन रोक दी (Blocked/Preview mode):</strong><br>
+                            1. फोन की मुख्य सेटिंग से <strong>Location/GPS ON</strong> करें।<br>
+                            2. ब्राउज़र में <strong>Location: Allow</strong> करें।<br>
+                            3. <em>चिंता न करें:</em> आप ऊपर अपना एरिया लिख दें, या WhatsApp पर डायरेक्ट <strong>"Share Live Location"</strong> भी भेज सकते हैं।
+                        `;
+                    } else if (err.code === 2) {
+                        errorTip = `<strong>⚠️ GPS सिग्नल कमजोर है:</strong> कृपया फोन का Location टॉगल दोबारा ऑन-ऑफ करें।`;
+                    } else {
+                        errorTip = `<strong>⚠️ समय समाप्त:</strong> फोन से लोकेशन मिलने में देरी हुई। कृपया दोबारा दबाएं।`;
+                    }
+
+                    statusBox.innerHTML = `
+                        <div>${errorTip}</div>
+                        <div class="pt-1 border-t border-amber-200 flex items-center justify-between">
+                            <span class="text-[10px] text-amber-800">या Google Map पर अपना घर खोजें:</span>
+                            <a href="https://maps.google.com" target="_blank" class="px-2 py-1 bg-amber-200 hover:bg-amber-300 text-amber-900 rounded font-semibold text-[10px] underline">Open Google Maps</a>
+                        </div>
+                    `;
+                },
+                geoOptions
+            );
+        }
+
+        const getLiveLocation = requestPermissionAndLocation;
+
+        function submitForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('mName')?.value?.trim() || '';
+            const phone = document.getElementById('mPhone')?.value?.trim() || '';
+            const selectVal = document.getElementById('mServiceSelect')?.value || '';
+            const customText = document.getElementById('mCustomText')?.value?.trim() || '';
+            const problem = document.getElementById('mProblem')?.value?.trim() || '';
+            const slot = document.getElementById('mSlot')?.value || '';
+            const loc = document.getElementById('mLoc')?.value?.trim() || '';
+            const gpsUrl = document.getElementById('mGpsUrl')?.value?.trim() || '';
+            const coords = document.getElementById('mCoords')?.value?.trim() || '';
+
+            // Strict 10-digit validation
+            if (phone.length !== 10 || !/^[6-9][0-9]{9}$/.test(phone)) {
+                const phoneErr = document.getElementById('phoneError');
+                if (phoneErr) phoneErr.classList.remove('hidden');
+                document.getElementById('mPhone').focus();
+                return;
+            }
+
+            let serviceFinal = selectVal;
+            if (selectVal === 'OTHER_CUSTOM') {
+                serviceFinal = `Custom Request: "${customText || 'Other Appliance'}"`;
+            }
+
+            let locationDetails = "";
+            if (coords && gpsUrl) {
+                locationDetails = `📍 *Exact GPS Coordinates:* ${coords}\n` +
+                                  `🚗 *Direct Doorstep Turn-by-Turn Map:*\n${gpsUrl}`;
+            } else {
+                const autoMapSearch = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc)}`;
+                locationDetails = `🚗 *Google Maps Navigation Link (Based on Address):*\n${autoMapSearch}\n` +
+                                  `_(Tip: Aap chat me WhatsApp 'Share Live Location' bhi bhej sakte hain)_`;
+            }
+
+            const text = `*New Service Booking - Muske Home Appliances*\n\n` +
+                         `👤 *Customer Name:* ${name}\n` +
+                         `📞 *Phone Number:* ${phone}\n` +
+                         `🔧 *Appliance / Service:* ${serviceFinal}\n` +
+                         `💬 *Problem (Own Words):* ${problem}\n` +
+                         `⏰ *Preferred Slot:* ${slot}\n` +
+                         `🏠 *Doorstep Address:* ${loc}\n\n` +
+                         `${locationDetails}\n\n` +
+                         `_Muske Home Appliances: Direct verified doorstep technician support_`;
+
+            window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+            closeBooking();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            showSlide(0);
+            startSlideTimer();
+
+            // Hover & touch pause mechanics
+            const wrapper = document.getElementById('showcaseWrapper');
+            const statusLabel = document.getElementById('slideStatusLabel');
+            if (wrapper) {
+                wrapper.addEventListener('mouseenter', () => {
+                    clearInterval(slideTimer);
+                    if (statusLabel) statusLabel.innerText = "Paused (reading)";
+                });
+                wrapper.addEventListener('mouseleave', () => {
+                    startSlideTimer();
+                    if (statusLabel) statusLabel.innerText = "Auto-swapping (4s)";
+                });
+                wrapper.addEventListener('touchstart', () => {
+                    clearInterval(slideTimer);
+                    if (statusLabel) statusLabel.innerText = "Paused (reading)";
+                }, { passive: true });
+                wrapper.addEventListener('touchend', () => {
+                    startSlideTimer();
+                    if (statusLabel) statusLabel.innerText = "Auto-swapping (4s)";
+                }, { passive: true });
+            }
+        });
+    </script>
+</body>
+</html>
