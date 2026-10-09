@@ -1102,12 +1102,12 @@
         }
 
         function addShowcaseBanner() {
-            const tag = document.getElementById('admBannerTag')?.value?.trim() || 'New Arrival • Muske Special';
-            const title = document.getElementById('admBannerTitle')?.value?.trim() || '';
+            const title = document.getElementById('admBannerTitle')?.value?.trim() || 'Festive Poster / Announcement';
+            const tag = document.getElementById('admBannerTag')?.value?.trim() || 'Muske Special';
             const desc = document.getElementById('admBannerDesc')?.value?.trim() || '';
 
-            if (!title) {
-                alert("कृपया बैनर का Main Title लिखें!");
+            if (!currentUploadedImageBase64 && !title) {
+                alert("कृपया कोई फोटो चुनें या टाइटल दर्ज करें!");
                 return;
             }
 
@@ -1115,7 +1115,7 @@
                 id: Date.now(),
                 tag: tag,
                 title: title,
-                desc: desc || 'Direct certified doorstep installation & support available.',
+                desc: desc,
                 image: currentUploadedImageBase64
             };
 
@@ -1132,7 +1132,51 @@
             document.getElementById('admBannerDesc').value = '';
             clearBannerPreview();
 
-            showAdminToast("नया बैनर सफलतापूर्वक Showcase विंडो में लाइव हो गया!");
+            showAdminToast("नया पोस्टर/बैनर सफलतापूर्वक Showcase विंडो में लाइव हो गया!");
+        }
+
+        // Move Slide Up / Down functions
+        function moveSlide(index, direction) {
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= showcaseSlides.length) return;
+
+            const temp = showcaseSlides[index];
+            showcaseSlides[index] = showcaseSlides[targetIndex];
+            showcaseSlides[targetIndex] = temp;
+
+            localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            currentSlide = targetIndex;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("स्लाइड का क्रम बदल दिया गया!");
+        }
+
+        // Drag & Drop Reordering Variables
+        let draggedIndex = null;
+
+        function handleDragStart(e, index) {
+            draggedIndex = index;
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function handleDrop(e, targetIndex) {
+            e.preventDefault();
+            if (draggedIndex === null || draggedIndex === targetIndex) return;
+
+            const itemToMove = showcaseSlides.splice(draggedIndex, 1)[0];
+            showcaseSlides.splice(targetIndex, 0, itemToMove);
+
+            draggedIndex = null;
+            localStorage.setItem('muske_slides', JSON.stringify(showcaseSlides));
+            currentSlide = targetIndex;
+            renderShowcaseSlides();
+            renderAdminSlidesList();
+            showAdminToast("स्लाइड्स का क्रम अपडेट हो गया!");
         }
 
         function deleteAdminSlide(id) {
@@ -1159,17 +1203,33 @@
             const listEl = document.getElementById('adminSlidesList');
             if (!listEl) return;
             listEl.innerHTML = showcaseSlides.map((s, idx) => `
-                <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-borderMuted text-xs">
-                    <div class="flex items-center gap-2 overflow-hidden">
-                        ${s.image ? `<img src="${s.image}" class="w-7 h-7 rounded object-cover shrink-0">` : `<div class="w-7 h-7 rounded bg-subtle flex items-center justify-center shrink-0 text-[10px] font-bold text-txtMuted">${idx+1}</div>`}
+                <div draggable="true" 
+                     ondragstart="handleDragStart(event, ${idx})"
+                     ondragover="handleDragOver(event)"
+                     ondrop="handleDrop(event, ${idx})"
+                     class="flex items-center justify-between p-2 rounded-xl bg-white border border-borderMuted text-xs gap-2 select-none hover:border-txtPrimary transition cursor-grab active:cursor-grabbing">
+                    
+                    <div class="flex items-center gap-2 overflow-hidden flex-1">
+                        <span class="text-txtMuted hover:text-txtPrimary cursor-grab font-bold px-0.5 text-xs">⠿</span>
+                        <span class="w-5 h-5 rounded-md bg-subtle flex items-center justify-center font-bold text-[10px] text-txtSecondary shrink-0">${idx + 1}</span>
+                        ${s.image ? `<img src="${s.image}" class="w-9 h-7 rounded-md object-cover border border-borderMuted shrink-0">` : `<div class="w-9 h-7 rounded-md bg-subtle flex items-center justify-center shrink-0 text-[10px] text-txtMuted font-bold">Aa</div>`}
                         <div class="truncate">
-                            <span class="font-semibold text-txtPrimary truncate block">${s.title}</span>
-                            <span class="text-[10px] text-txtMuted truncate block">${s.tag}</span>
+                            <span class="font-semibold text-txtPrimary truncate block text-[11px]">${s.title || 'Image Banner'}</span>
+                            <span class="text-[9px] text-txtMuted truncate block">${s.tag || ''}</span>
                         </div>
                     </div>
-                    <button type="button" onclick="deleteAdminSlide(${s.id})" class="p-1 text-txtMuted hover:text-red-600 transition shrink-0" title="Delete Slide">
-                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                    </button>
+
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button type="button" onclick="moveSlide(${idx}, -1)" ${idx === 0 ? 'disabled class="opacity-25 p-1"' : 'class="p-1 text-txtSecondary hover:text-txtPrimary"'} title="Move Up">
+                            ▲
+                        </button>
+                        <button type="button" onclick="moveSlide(${idx}, 1)" ${idx === showcaseSlides.length - 1 ? 'disabled class="opacity-25 p-1"' : 'class="p-1 text-txtSecondary hover:text-txtPrimary"'} title="Move Down">
+                            ▼
+                        </button>
+                        <button type="button" onclick="deleteAdminSlide(${s.id})" class="p-1 text-txtMuted hover:text-red-600 transition ml-1" title="Delete Slide">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
                 </div>
             `).join('');
             if (window.lucide) lucide.createIcons();
